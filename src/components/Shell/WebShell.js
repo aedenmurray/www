@@ -1,6 +1,20 @@
 import LocalEchoController from 'local-echo';
 import { Terminal } from 'xterm';
 
+const banner = `
+
+██╗    ██╗███████╗██████╗ ███████╗██╗  ██╗███████╗██╗     ██╗     
+██║    ██║██╔════╝██╔══██╗██╔════╝██║  ██║██╔════╝██║     ██║     
+██║ █╗ ██║█████╗  ██████╔╝███████╗███████║█████╗  ██║     ██║     
+██║███╗██║██╔══╝  ██╔══██╗╚════██║██╔══██║██╔══╝  ██║     ██║     
+╚███╔███╔╝███████╗██████╔╝███████║██║  ██║███████╗███████╗███████╗
+ ╚══╝╚══╝ ╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+
+
+
+ 
+`;
+
 export default class WebShell extends Terminal {
     constructor() {
         super({
@@ -11,6 +25,8 @@ export default class WebShell extends Terminal {
 
         this.localEcho = new LocalEchoController();
         this.loadAddon(this.localEcho);
+
+        this.localEcho.println(banner);
 
         (function readLines() {
             this.localEcho.read('webshell~$ ').then((data) => {
