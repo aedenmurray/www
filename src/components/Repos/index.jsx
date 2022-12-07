@@ -45,24 +45,18 @@ const Repos = () => {
 
     return (
         <div id="repos">
-            <div className="title">
-                <ion-icon name="logo-github" />
-                <p>GitHub Repositories:</p>
-            </div>
-            <div id="repo-list">
-                {error ? (
-                    <p id="repos-error">Error fetching GitHub repositories!</p>
-                ) : (
-                    repos.map((repo) => (
-                        <Repo
-                            key={repo.name}
-                            name={repo.name}
-                            desc={repo.desc}
-                            url={repo.url}
-                        />
-                    ))
-                )}
-            </div>
+            {error ? (
+                <p id="repos-error">Error fetching GitHub repositories!</p>
+            ) : (
+                repos.map((repo) => (
+                    <Repo
+                        key={repo.name}
+                        name={repo.name}
+                        desc={repo.desc}
+                        url={repo.url}
+                    />
+                ))
+            )}
         </div>
     );
 };

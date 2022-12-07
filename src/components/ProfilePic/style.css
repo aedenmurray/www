@@ -1,6 +1,6 @@
 #profile-pic {
-    max-width: 50%;
-    height: auto;
+    width: 250px;
+    height: 250px;
     position: relative;
     border-radius: 50%;
     border: 8px solid white;

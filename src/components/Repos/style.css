@@ -1,19 +1,6 @@
-#repos > .title {
+#repos {
     display: flex;
-    align-items: center;
-    font-size: 0.8em;
-    color: #747171;
-    margin-bottom: 1em;
-}
-
-#repos > .title > p {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 7px;
-}
-
-#repo-list {
-    display: flex;
+    padding: 2em;
 }
 
 #repos-error {
