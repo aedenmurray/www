@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@fontsource/fira-code": "^4.5.12",
+        "@fontsource/jetbrains-mono": "^4.5.11",
         "@fontsource/source-sans-pro": "^4.5.11",
         "local-echo": "github:wavesoft/local-echo",
         "react": "^18.2.0",

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import WebShell from './WebShell';
+import '@fontsource/jetbrains-mono';
 import 'xterm/css/xterm.css';
 import './style.css';
 

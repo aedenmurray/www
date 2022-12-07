@@ -2,22 +2,20 @@ import LocalEchoController from 'local-echo';
 import { Terminal } from 'xterm';
 
 const banner = `
-
 ██╗    ██╗███████╗██████╗ ███████╗██╗  ██╗███████╗██╗     ██╗     
 ██║    ██║██╔════╝██╔══██╗██╔════╝██║  ██║██╔════╝██║     ██║     
 ██║ █╗ ██║█████╗  ██████╔╝███████╗███████║█████╗  ██║     ██║     
 ██║███╗██║██╔══╝  ██╔══██╗╚════██║██╔══██║██╔══╝  ██║     ██║     
 ╚███╔███╔╝███████╗██████╔╝███████║██║  ██║███████╗███████╗███████╗
  ╚══╝╚══╝ ╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-
-
- 
+ \r\n
+ \r\n
 `;
 
 export default class WebShell extends Terminal {
     constructor() {
         super({
-            fontFamily: 'Fira Code, monospace',
+            fontFamily: '"JetBrains Mono", monospace',
             fontSize: 12,
             rows: 30,
         });
