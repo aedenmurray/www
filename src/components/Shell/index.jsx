@@ -26,8 +26,7 @@ class WebShell extends Terminal {
         });
 
         this.ws = new WebSocket('wss://ws.aedenmurray.dev');
-        this.echo = new LocalEchoController();
-        this.loadAddon(this.echo);
+        this.echo = new LocalEchoController(this);
         this.init();
     }
 
@@ -58,14 +57,14 @@ class WebShell extends Terminal {
 
     readLine = async () => {
         const line = await this.echo.read('webshell~$ ');
+
         if (!line.length) {
             this.readLine();
             return;
         }
 
-        // TODO: Fix bug.
         if (line === 'clear') {
-            this.clear();
+            this.reset();
             this.readLine();
             return;
         }
