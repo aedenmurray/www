@@ -19,10 +19,13 @@ const banner = `
 
 class WebShell extends Terminal {
     constructor() {
+        // TODO: Make better. Handle resize.
+        const rows = window.innerHeight <= 800 ? 20 : 30;
+
         super({
             fontFamily: '"JetBrains Mono", monospace',
             fontSize: 12,
-            rows: 30,
+            rows,
         });
 
         this.ws = new WebSocket('wss://ws.aedenmurray.dev');
