@@ -74,11 +74,11 @@ class WebShell extends Terminal {
             const { stdout, stderr, done } = message;
 
             if (stdout) {
-                this.echo.print(stdout);
+                this.echo.println(stdout);
             }
 
             if (stderr) {
-                this.echo.print(`\x1b[1;31m${stderr}\x1b[37m`);
+                this.echo.println(`\x1b[1;31m${stderr}\x1b[37m`);
             }
 
             if (done) {
