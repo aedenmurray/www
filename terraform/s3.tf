@@ -7,6 +7,14 @@ resource "aws_s3_bucket_acl" "www" {
   acl    = "private"
 }
 
+resource "aws_s3_bucket_public_access_block" "www" {
+  bucket                  = aws_s3_bucket.www.bucket
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
 module "www_files" {
   source   = "hashicorp/dir/template"
   base_dir = "../build"
@@ -20,8 +28,8 @@ resource "aws_s3_object" "www" {
   source  = each.value.source_path
   content = each.value.content
 
-  etag         = each.value.digests.md5
-  content_type = each.value.content_type
+  etag          = each.value.digests.md5
+  content_type  = each.value.content_type
   cache_control = "max-age=0"
 }
 

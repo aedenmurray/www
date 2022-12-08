@@ -14,9 +14,10 @@
     "scripts": {
         "fmt": "terraform fmt -recursive terraform",
         "invalidate": "aws cloudfront create-invalidation --distribution-id E2NWH87KQ3CPU8 --paths '/*'",
-        "deploy": "npm run build && terraform -chdir=terraform apply && npm run invalidate",
-        "start": "react-scripts start",
-        "build": "react-scripts build"
+        "deploy": "npm run build && npm run buildws && terraform -chdir=terraform apply && npm run invalidate",
+        "buildws": "node webshell/esbuild.js && zip -j /tmp/webshell.zip webshell/bin.js",
+        "build": "react-scripts build",
+        "start": "react-scripts start"
     },
     "eslintConfig": {
         "extends": [
@@ -36,6 +37,8 @@
         ]
     },
     "devDependencies": {
+        "aws-sdk": "^2.1270.0",
+        "esbuild": "^0.16.1",
         "prettier": "^2.8.0"
     }
 }

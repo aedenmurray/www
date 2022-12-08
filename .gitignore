@@ -24,3 +24,6 @@ yarn-error.log*
 
 # terraform
 terraform/.terraform
+
+# webshell
+webshell/bin.js
