@@ -35,9 +35,7 @@ export const handler = async (event) => {
             promises.push(
                 post(
                     JSON.stringify({
-                        pid: child.pid,
-                        data: data.toString(),
-                        type: 'stdout',
+                        stdout: data.toString(),
                         done: false,
                     }),
                 ),
@@ -48,22 +46,18 @@ export const handler = async (event) => {
             promises.push(
                 post(
                     JSON.stringify({
-                        pid: child.pid,
-                        data: data.toString(),
-                        type: 'stderr',
+                        stderr: data.toString(),
                         done: false,
                     }),
                 ),
             );
         });
 
-        child.on('close', async (code) => {
+        child.on('close', async () => {
             await Promise.all(promises);
             await post(
                 JSON.stringify({
-                    pid: child.pid,
                     done: true,
-                    code,
                 }),
             );
 

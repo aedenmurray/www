@@ -49,7 +49,7 @@ resource "aws_lambda_function" "webshell" {
   filename         = "/tmp/webshell.zip"
   source_code_hash = filebase64sha256("/tmp/webshell.zip")
   memory_size      = 128
-  timeout          = 900
+  timeout          = 10
 
   environment {
     variables = {

@@ -25,31 +25,68 @@ class WebShell extends Terminal {
             rows: 30,
         });
 
-        this.localEcho = new LocalEchoController();
-        this.loadAddon(this.localEcho);
-
-        this.localEcho.println(banner);
-
-        (function readLines() {
-            this.localEcho.read('webshell~$ ').then((data) => {
-                this.processInput(data);
-                readLines.bind(this)();
-            });
-        }.bind(this)());
+        this.ws = new WebSocket('wss://ws.aedenmurray.dev');
+        this.echo = new LocalEchoController();
+        this.loadAddon(this.echo);
+        this.init();
     }
 
-    processInput = (data) => {
-        try {
-            // eslint-disable-next-line no-eval
-            const output = eval(data);
-            if (output !== undefined) {
-                this.localEcho.println(output);
-                return;
+    init = async () => {
+        let connected = false;
+        this.echo.println(banner);
+
+        this.ws.onopen = () => {
+            connected = true;
+        };
+
+        await async function animateConnecting() {
+            const animation = ['-', '\\', '|', '/'];
+            let counter = 0;
+
+            while (!connected) {
+                const animationCharacter = animation[counter];
+                this.write(`\r[${animationCharacter}] Connecting`);
+                await new Promise((resolve) => setTimeout(resolve, 100));
+                counter = counter === 3 ? 0 : counter + 1;
             }
-        } catch (error) {
-            const { message } = error;
-            this.localEcho.println(message);
+
+            this.write('\r[*] Connected!\r\n\r\n');
+        }.bind(this)();
+
+        this.readLine();
+    };
+
+    readLine = async () => {
+        const line = await this.echo.read('webshell~$ ');
+        if (!line.length) {
+            this.readLine();
+            return;
         }
+
+        if (line === 'clear') {
+            this.clear();
+            this.readLine();
+            return;
+        }
+
+        this.ws.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+            const { stdout, stderr, done } = message;
+
+            if (stdout) {
+                this.echo.print(stdout);
+            }
+
+            if (stderr) {
+                this.echo.print(`\x1b[1;31m${stderr}\x1b[37m`);
+            }
+
+            if (done) {
+                this.readLine();
+            }
+        };
+
+        this.ws.send(line);
     };
 }
 
