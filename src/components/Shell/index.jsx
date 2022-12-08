@@ -78,7 +78,7 @@ class WebShell extends Terminal {
             }
 
             if (stderr) {
-                this.echo.println(`\x1b[1;31m${stderr}\x1b[37m`);
+                this.echo.print(`\x1b[1;31m${stderr}\x1b[37m`);
             }
 
             if (done) {
