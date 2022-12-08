@@ -6,6 +6,8 @@ const managementAPI = new AWS.ApiGatewayManagementApi({
     endpoint: `${API_ID}.execute-api.${AWS_REGION}.amazonaws.com/${API_STAGE}`,
 });
 
+// TODO: handle gone exceptions.
+
 export const handler = async (event) => {
     const { body: command, requestContext } = event;
     const { connectionId, eventType } = requestContext;
