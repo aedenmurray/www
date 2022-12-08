@@ -75,14 +75,17 @@ class WebShell extends Terminal {
 
             if (stdout) {
                 this.echo.println(stdout);
+                return;
             }
 
             if (stderr) {
                 this.echo.print(`\x1b[1;31m${stderr}\x1b[37m`);
+                return;
             }
 
             if (done) {
                 this.readLine();
+                return;
             }
         };
 
