@@ -63,6 +63,7 @@ class WebShell extends Terminal {
             return;
         }
 
+        // TODO: Fix bug.
         if (line === 'clear') {
             this.clear();
             this.readLine();

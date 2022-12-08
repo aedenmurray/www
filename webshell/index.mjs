@@ -6,7 +6,7 @@ const managementAPI = new AWS.ApiGatewayManagementApi({
     endpoint: `${API_ID}.execute-api.${AWS_REGION}.amazonaws.com/${API_STAGE}`,
 });
 
-// TODO: handle gone exceptions.
+// TODO: Handle Exceptions.
 
 export const handler = async (event) => {
     const { body: command, requestContext } = event;
@@ -27,7 +27,7 @@ export const handler = async (event) => {
             .promise();
 
     console.log(`Received command: ${command}`);
-    const child = spawn(command, { shell: true });
+    const child = spawn(`/bin/bash -c '${command}'`, { shell: true });
 
     const promises = [];
     await new Promise((resolve) => {
