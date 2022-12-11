@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import LocalEchoController from 'local-echo';
+import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
 
 import '@fontsource/jetbrains-mono';
@@ -19,13 +20,9 @@ const banner = `
 
 class WebShell extends Terminal {
     constructor() {
-        // TODO: Make better. Handle resize.
-        const rows = window.innerHeight <= 800 ? 20 : 30;
-
         super({
             fontFamily: '"JetBrains Mono", monospace',
             fontSize: 12,
-            rows,
         });
 
         this.ws = new WebSocket('wss://ws.aedenmurray.dev');
@@ -99,12 +96,13 @@ class WebShell extends Terminal {
 const Shell = () => {
     const webTerminalElement = useRef(null);
     const webTerminal = useRef(new WebShell());
+    const fit = useRef(new FitAddon());
 
     useEffect(() => {
         // prettier-ignore
-        webTerminal.current.open(
-            webTerminalElement.current
-        );
+        webTerminal.current.loadAddon(fit.current)
+        webTerminal.current.open(webTerminalElement.current);
+        fit.current.fit();
     }, []);
 
     return <div ref={webTerminalElement} />;
