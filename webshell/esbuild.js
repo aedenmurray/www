@@ -5,7 +5,7 @@ require('esbuild')
         platform: 'node',
         external: ['aws-sdk'],
         entryPoints: ['webshell/index.mjs'],
-        outfile: 'webshell/bin.js',
+        outfile: '/tmp/webshell/bin.js',
     })
     .catch(() => {
         process.exit(1);
