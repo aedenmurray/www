@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react';
 import LocalEchoController from 'local-echo';
 import { FitAddon } from 'xterm-addon-fit';
 import { Terminal } from 'xterm';
-
-import '@fontsource/jetbrains-mono';
 import 'xterm/css/xterm.css';
 import './style.css';
 
@@ -21,7 +19,6 @@ const banner = `
 class WebShell extends Terminal {
     constructor() {
         super({
-            fontFamily: '"JetBrains Mono", monospace',
             fontSize: 12,
         });
 

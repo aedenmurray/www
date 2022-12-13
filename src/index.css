@@ -1,13 +1,23 @@
 @import-normalize;
 
-html,
-body,
-#root {
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('./fonts/SourceSansPro/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('./fonts/SourceSansPro/SourceSansPro-Bold.ttf');
+    font-weight: bold;
+}
+
+/* prettier-ignore */
+html, body, #root {
     margin: 0;
     padding: 0;
     height: 100%;
     box-sizing: border-box;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro';
 }
 
 #app {
