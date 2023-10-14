@@ -3,18 +3,14 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "local-echo": "github:wavesoft/local-echo",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-scripts": "5.0.1",
-        "xterm": "^5.0.0",
-        "xterm-addon-fit": "^0.6.0"
+        "react-scripts": "5.0.1"
     },
     "scripts": {
         "fmt": "terraform fmt -recursive terraform",
-        "deploy": "npm run build && npm run build-webshell && terraform -chdir=terraform apply && npm run invalidate",
+        "deploy": "npm run build && terraform -chdir=terraform apply && npm run invalidate",
         "invalidate": "aws cloudfront create-invalidation --distribution-id E2NWH87KQ3CPU8 --paths '/*'",
-        "build-webshell": "node webshell/esbuild.js && zip -j /tmp/webshell.zip /tmp/webshell/bin.js",
         "build": "react-scripts build",
         "start": "react-scripts start"
     },
