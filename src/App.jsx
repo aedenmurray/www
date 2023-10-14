@@ -1,3 +1,4 @@
+import React from 'react'
 import MainArea from './layouts/MainArea';
 import Sidebar from './layouts/Sidebar';
 

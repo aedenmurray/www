@@ -1,3 +1,4 @@
+import React from 'react'
 import ProfilePic from '../../components/ProfilePic';
 import './style.css';
 
