@@ -11,11 +11,8 @@
         "fs-extra": "^11.1.1"
     },
     "scripts": {
-        "fmt": "terraform fmt -recursive terraform",
         "deploy": "npm run build && terraform -chdir=terraform apply && npm run invalidate",
-        "invalidate": "aws cloudfront create-invalidation --distribution-id E2NWH87KQ3CPU8 --paths '/*'",
-        "build": "react-scripts build",
-        "start": "react-scripts start"
+        "invalidate": "aws cloudfront create-invalidation --distribution-id E2NWH87KQ3CPU8 --paths '/*'"
     },
     "eslintConfig": {
         "extends": [
