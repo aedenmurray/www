@@ -31,14 +31,14 @@
 .repo .repo-name {
     margin-top: 0;
     font-weight: bold;
-    border-bottom: 1px solid #b3b3b3;
-    padding-bottom: 10px;
     margin-bottom: 10px;
+    font-size: 1.2em;
 }
 
 .repo .repo-desc {
     margin-top: 10px;
     color: #747171;
+    font-size: 1em;
 }
 
 .repo ion-icon {
