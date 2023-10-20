@@ -7,6 +7,7 @@ const options = {
   outdir: 'build',
   metafile: true,
   bundle: true,
+  minify: true
 };
 
 const serve = async () => {
