@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 
 const alt = 'Aeden Murray';
-const big = '/images/me/big.jpeg';
-const small = '/images/me/small.jpeg';
+const big = '/images/me/aedenmurray-500x500.png';
+const small = '/images/me/aedenmurray-50x50.png';
 
 const ProfilePic = () => {
     const [loaded, setLoaded] = useState(false);
