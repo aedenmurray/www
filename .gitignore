@@ -1,4 +1,4 @@
 .DS_Store
+.terraform
 metafile.json
-terraform/.terraform
 node_modules
