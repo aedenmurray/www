@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function () {
+export default function CubeIcon() {
   return (
     <svg
       viewBox="0 0 512 512"
