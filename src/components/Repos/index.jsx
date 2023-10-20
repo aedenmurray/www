@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CubeIcon from './CubeIcon';
 import './style.css';
 
 const Repo = ({ name, desc, url }) => (
@@ -9,7 +10,7 @@ const Repo = ({ name, desc, url }) => (
                 <p className="repo-desc">{desc}</p>
             </div>
 
-            <ion-icon name="cube-outline" />
+            <CubeIcon />
         </a>
     </div>
 );

@@ -41,9 +41,9 @@
     font-size: 1em;
 }
 
-.repo ion-icon {
-    width: 20px;
-    height: 20px;
+.repo .cube-icon {
+    width: 25px;
+    height: 25px;
     color: #616161;
     margin-left: auto;
 }
