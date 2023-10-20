@@ -12,5 +12,6 @@ rules: {
   'indent': ['error', 2],
   'quotes': ['error', 'single'],
   'no-multi-spaces': ['error'],
-  'semi': ['error', 'always']
+  'semi': ['error', 'always'],
+  'react/prop-types': 'off'
 }
