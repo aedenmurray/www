@@ -18,6 +18,21 @@ tasks:
     dir: terraform
     cmd: terraform apply
 
+  lint:
+    cmds:
+      - |
+        npm run eslint \
+        src esbuild.js -- \
+        --ext .jsx,.js
+
+  fix:
+    cmds:
+      - |
+        npm run eslint \
+        src esbuild.js -- \
+        --ext .jsx,.js \
+        --fix
+
   build:
     cmd: node esbuild.js
 

@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 import MainArea from './layout/MainArea';
 import Sidebar from './layout/Sidebar';
 
-const App = () => (
+function App() {
+  return (
     <div id="app">
-        <Sidebar />
-        <MainArea />
+      <Sidebar />
+      <MainArea />
     </div>
-);
+  );
+}
 
 export default App;
