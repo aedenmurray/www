@@ -21,15 +21,13 @@ tasks:
   lint:
     cmds:
       - |
-        npm run eslint \
-        src esbuild.js -- \
+        npm run eslint src -- \
         --ext .jsx,.js
 
   fix:
     cmds:
       - |
-        npm run eslint \
-        src esbuild.js -- \
+        npm run eslint src -- \
         --ext .jsx,.js \
         --fix
 
