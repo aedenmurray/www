@@ -1,10 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import http from 'http';
 import esbuild from 'esbuild';
 import fs from 'fs-extra';
 
 const options = {
   entryPoints: ['src/index.jsx'],
-  outdir: 'build',
+  outdir: '/tmp/aedenmurray/www',
   metafile: true,
   bundle: true,
   minify: true,
@@ -14,7 +15,10 @@ const serve = async () => {
   const context = await esbuild.context(options);
   await context.watch();
 
-  const { host: hostname, port } = await context.serve({ servedir: 'build' });
+  const { host: hostname, port } = await context.serve({
+    servedir: '/tmp/aedenmurray/www',
+  });
+
   const proxy = http.createServer((request, response) => {
     const forward = (path) => {
       const requestOptions = {
@@ -62,7 +66,7 @@ const build = async () => {
   }());
 };
 
-await fs.copy('public', 'build');
+await fs.copy('public', '/tmp/aedenmurray/www');
 await (process.argv.includes('--serve')
   ? serve()
   : build()

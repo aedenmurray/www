@@ -34,7 +34,7 @@ tasks:
   build:
     cmd: node esbuild.js
 
-  start:
+  serve:
     cmd: node esbuild.js --serve
 
   invalidate:

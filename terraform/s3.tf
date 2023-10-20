@@ -17,7 +17,7 @@ resource "aws_s3_bucket_public_access_block" "www" {
 
 module "www_files" {
   source   = "hashicorp/dir/template"
-  base_dir = "../build"
+  base_dir = "/tmp/aedenmurray/www"
 }
 
 resource "aws_s3_object" "www" {
