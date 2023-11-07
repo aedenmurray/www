@@ -23,7 +23,7 @@
 
 #profile-pic > img {
     display: block;
-    transition: 0.5s filter ease-in;
+    transition: 0.3s filter ease-in;
 }
 
 #profile-pic > img.loading {
