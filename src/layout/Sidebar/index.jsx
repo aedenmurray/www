@@ -1,4 +1,3 @@
-import React from 'react';
 import ProfilePic from '../../components/ProfilePic';
 import LinkedInIcon from './icons/LinkedInIcon';
 import GithubIcon from './icons/GithubIcon';

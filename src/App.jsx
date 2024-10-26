@@ -1,4 +1,3 @@
-import React from 'react';
 import MainArea from './layout/MainArea';
 import Sidebar from './layout/Sidebar';
 

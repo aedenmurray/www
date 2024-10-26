@@ -1,4 +1,7 @@
-extends: airbnb
+extends: 
+  - airbnb
+  - plugin:react/recommended
+  - plugin:react/jsx-runtime
 
 env:
   browser: true
@@ -8,10 +11,12 @@ parserOptions:
   ecmaVersion: latest
   sourceType: module
 
-rules: {
-  'indent': ['error', 2],
-  'quotes': ['error', 'single'],
-  'no-multi-spaces': ['error'],
-  'semi': ['error', 'always'],
-  'react/prop-types': 'off'
-}
+settings:
+  "import/resolver":
+    node:
+      "moduleDirectory":
+        - "node_modules"
+        - "src"
+
+rules:
+  "react/prop-types": "off"
