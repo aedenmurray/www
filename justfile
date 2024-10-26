@@ -1,4 +1,7 @@
 set quiet
+vite := 'npm run -s vite'
+eslint := 'npm run -s eslint'
+terraform := 'terraform -chdir=terraform'
 
 aws:
   aws-vault exec aedenmurray
@@ -17,16 +20,16 @@ apply:
   terraform apply
 
 lint:
-  npm run eslint src -- --ext .jsx,.js
+  {{eslint}} src -- --ext .jsx,.js
 
 fix:
-  npm run eslint src -- --ext .jsx,.js --fix
+  {{eslint}} src -- --ext .jsx,.js --fix
 
 build:
   node esbuild.js
 
 serve:
-  node esbuild.js --serve
+  {{vite}}
 
 invalidate:
   aws cloudfront create-invalidation \
