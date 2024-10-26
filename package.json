@@ -1,7 +1,9 @@
 {
-    "name": "www",
     "type": "module",
-    "version": "0.0.1",
+    "scripts": {
+        "eslint": "eslint",
+        "vite": "vite"
+    },
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
@@ -17,9 +19,5 @@
         "fs-extra": "^11.1.1",
         "vite": "^5.4.10",
         "vite-jsconfig-paths": "^2.0.1"
-    },
-    "scripts": {
-        "eslint": "eslint",
-        "vite": "vite"
     }
 }
