@@ -10,7 +10,9 @@ const WouterLink = forwardRef(
 );
 
 const base = createTheme({
-
+  palette: {
+    mode: 'dark',
+  },
 });
 
 export default createTheme(base, {
