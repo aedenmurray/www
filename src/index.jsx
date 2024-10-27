@@ -1,4 +1,4 @@
-import { ThemeProvider, CssBaseline, Button, Container } from '@mui/material';
+import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import ReactDOM from 'react-dom/client';
 import { Route } from 'wouter';
 import Header from 'components/Header';
@@ -9,6 +9,12 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+
+import '@fontsource/roboto-mono/300.css';
+import '@fontsource/roboto-mono/400.css';
+import '@fontsource/roboto-mono/500.css';
+import '@fontsource/roboto-mono/700.css';
+
 import Blog from 'pages/Blog';
 
 const rootElement = document.getElementById('root');
