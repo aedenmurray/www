@@ -35,7 +35,7 @@ export default function Repos() {
   }, []);
 
   return (
-    <Masonry columns={{ xs: 1, sm: 2 }}>
+    <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}>
       {repos.map((repo) => (
         <Repo
           key={repo.id}
