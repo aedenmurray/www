@@ -19,4 +19,13 @@ settings:
         - "src"
 
 rules:
+  "object-curly-newline": 
+    - "error"
+    - "consistent": true
+
   "react/prop-types": "off"
+  "react/jsx-props-no-spreading": "off"
+  
+  "no-confusing-arrow": "off"
+  "implicit-arrow-linebreak": "off"
+
