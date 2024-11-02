@@ -18,6 +18,9 @@ plan:
 apply:
   {{terraform}} apply
 
+console:
+  {{terraform}} console
+
 lint:
   {{eslint}} src -- --ext .jsx,.js
 
