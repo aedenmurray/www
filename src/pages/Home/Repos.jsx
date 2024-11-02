@@ -6,7 +6,10 @@ import { useEffect, useState } from 'react';
 function Repo({ name, description, stargazers }) {
   return (
     <Card variant="outlined">
-      <CardActionArea>
+      <CardActionArea
+        href={`https://github.com/aedenmurray/${name}`}
+        target="_blank"
+      >
         <CardContent>
           <Stack direction="row" alignItems="center" justifyContent="space-between">
             <Typography variant="body2" fontWeight="bold" fontFamily="Roboto Mono">{name}</Typography>
