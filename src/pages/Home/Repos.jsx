@@ -12,7 +12,7 @@ function Repo({ name, description, stargazers }) {
       >
         <CardContent>
           <Stack direction="row" alignItems="center" justifyContent="space-between">
-            <Typography variant="body2" fontWeight="bold" fontFamily="Roboto Mono">{name}</Typography>
+            <Typography variant="body2" fontWeight="bold">{name}</Typography>
             <Stack direction="row" alignItems="center" spacing={0.25} color="gray">
               <Typography variant="subtitle2">{stargazers}</Typography>
               <StarOutlineRounded sx={{ fontSize: '1rem' }} />
