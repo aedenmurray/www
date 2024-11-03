@@ -1,8 +1,8 @@
-import { Tag } from '@mui/icons-material';
-import { Typography, Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
-import Markdown from 'react-markdown';
+import { Typography, Stack } from '@mui/material';
 import { useLocation, useParams } from 'wouter';
+import { Tag } from '@mui/icons-material';
+import Md from 'components/ui/Md';
 
 export default function Post() {
   const [meta, setMeta] = useState(null);
@@ -47,9 +47,7 @@ export default function Post() {
         </Stack>
       </Stack>
 
-      <Markdown>
-        {markdown}
-      </Markdown>
+      <Md>{markdown}</Md>
     </Stack>
   );
 }
