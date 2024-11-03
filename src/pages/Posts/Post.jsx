@@ -1,8 +1,27 @@
 import { useEffect, useState } from 'react';
 import { Typography, Stack } from '@mui/material';
 import { useLocation, useParams } from 'wouter';
-import { Tag } from '@mui/icons-material';
-import Md from 'components/ui/Md';
+import Markdown from 'components/ui/Markdown';
+import Tags from 'components/ui/Tags';
+
+function Title({ title }) {
+  return (
+    <Typography
+      variant="h2"
+      fontWeight="bold"
+    >
+      {title}
+    </Typography>
+  );
+}
+
+function DateTime({ date }) {
+  return (
+    <Typography>
+      {new Date(date).toString()}
+    </Typography>
+  );
+}
 
 export default function Post() {
   const [meta, setMeta] = useState(null);
@@ -37,17 +56,18 @@ export default function Post() {
   }, [slug]);
 
   if (loading) return <p>loading</p>;
+
   return (
     <Stack sx={{ mt: 2 }}>
-      <Stack>
-        <Typography variant="h2" fontWeight="bold">{meta.title}</Typography>
-        <Stack direction="row" spacing={0.5}>
-          <Tag fontSize="small" />
-          <Typography variant="subtitle2">{meta.tags.join(', ')}</Typography>
-        </Stack>
+      <Stack spacing={1}>
+        <Title title={meta.title} />
+        <DateTime date={meta.date} />
+        <Tags tags={meta.tags} />
       </Stack>
 
-      <Md>{markdown}</Md>
+      <Markdown>
+        {markdown}
+      </Markdown>
     </Stack>
   );
 }

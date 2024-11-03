@@ -5,5 +5,13 @@
 *italic*
 **bold**
 `code`
---
+
+---
+
 paragraph
+
+```
+const a = a;
+```
+
+![A medium cat image](hello/cat.jpg)
