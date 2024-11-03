@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { createTheme, responsiveFontSizes } from '@mui/material';
 import { forwardRef } from 'react';
 import { Link } from 'wouter';
 
@@ -12,11 +12,13 @@ const WouterLink = forwardRef(
   ),
 );
 
-const base = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+const base = responsiveFontSizes(
+  createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  }),
+);
 
 export default createTheme(base, {
   components: {
