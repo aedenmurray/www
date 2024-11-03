@@ -24,7 +24,7 @@ root.render(
     <CssBaseline>
       <Header />
       <Container sx={{ py: 2 }}>
-        <Route path="/posts"><Posts /></Route>
+        <Route path="/posts" nest><Posts /></Route>
         <Route path="/"><Home /></Route>
       </Container>
     </CssBaseline>

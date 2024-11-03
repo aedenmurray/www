@@ -1,6 +1,12 @@
-const x = import.meta.glob('/posts/**/*', { query: '?raw' });
+import { Route } from 'wouter';
+import Home from './Home';
+import Post from './Post';
 
 export default function Posts() {
-  console.log(x);
-  return <p>posts</p>;
+  return (
+    <div>
+      <Route path="/:slug"><Post /></Route>
+      <Route path="/"><Home /></Route>
+    </div>
+  );
 }

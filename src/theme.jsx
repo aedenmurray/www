@@ -26,9 +26,41 @@ export default createTheme(base, {
       },
     },
 
+    MuiCard: {
+      defaultProps: {
+        variant: 'outlined',
+      },
+    },
+
+    MuiCardHeader: {
+      defaultProps: {
+        titleTypographyProps: {
+          fontWeight: 'bold',
+          variant: 'body2',
+        },
+      },
+
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+      },
+    },
+
     MuiLink: {
       defaultProps: {
         component: WouterLink,
+      },
+    },
+
+    MuiMasonry: {
+      defaultProps: {
+        columns: {
+          xs: 1,
+          sm: 2,
+          md: 3,
+          lg: 4,
+        },
       },
     },
   },

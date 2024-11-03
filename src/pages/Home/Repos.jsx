@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 function Repo({ name, description, stargazers }) {
   return (
-    <Card variant="outlined">
+    <Card>
       <CardActionArea
         href={`https://github.com/aedenmurray/${name}`}
         target="_blank"
@@ -38,7 +38,7 @@ export default function Repos() {
   }, []);
 
   return (
-    <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}>
+    <Masonry>
       {repos.map((repo) => (
         <Repo
           key={repo.id}
