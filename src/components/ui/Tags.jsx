@@ -3,8 +3,10 @@ import { Tag } from '@mui/icons-material';
 
 export default function Tags({ tags }) {
   return (
-
-    <Stack direction="row" spacing={0.5}>
+    <Stack
+      direction="row"
+      spacing={0.5}
+    >
       {tags.map((tag) => (
         <Chip
           key={tag}

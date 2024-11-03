@@ -9,6 +9,7 @@ function Title({ title }) {
     <Typography
       variant="h2"
       fontWeight="bold"
+      lineHeight="normal"
     >
       {title}
     </Typography>
@@ -17,8 +18,8 @@ function Title({ title }) {
 
 function DateTime({ date }) {
   return (
-    <Typography>
-      {new Date(date).toString()}
+    <Typography variant="subtitle2">
+      {new Date(date).toUTCString()}
     </Typography>
   );
 }
