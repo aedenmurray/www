@@ -7,7 +7,7 @@ import Tags from 'components/ui/Tags';
 function Title({ title }) {
   return (
     <Typography
-      variant="h2"
+      variant="h1"
       fontWeight="bold"
       lineHeight="normal"
     >
