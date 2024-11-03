@@ -1,9 +1,11 @@
-import Repos from './Repos';
+import PostMasonry from 'components/PostMasonry';
+import RepoMasonry from 'components/RepoMasonry';
 
 export default function Home() {
   return (
     <div>
-      <Repos />
+      <PostMasonry />
+      <RepoMasonry />
     </div>
   );
 }

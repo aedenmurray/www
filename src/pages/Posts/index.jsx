@@ -1,12 +1,12 @@
 import { Route } from 'wouter';
-import Home from './Home';
+import PostMasonry from 'components/PostMasonry';
 import Post from './Post';
 
 export default function Posts() {
   return (
     <div>
       <Route path="/:slug"><Post /></Route>
-      <Route path="/"><Home /></Route>
+      <Route path="/"><PostMasonry /></Route>
     </div>
   );
 }
