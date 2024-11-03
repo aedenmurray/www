@@ -2,6 +2,7 @@ import { Masonry } from '@mui/lab';
 import PostItem from './PostItem';
 
 export default function PostMasonry() {
+  // TODO: sort by date
   const posts = import.meta.glob('/posts/**/meta.json', {
     import: 'default',
     eager: true,
