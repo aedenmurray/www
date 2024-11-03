@@ -38,7 +38,7 @@ export default function Post() {
 
   if (loading) return <p>loading</p>;
   return (
-    <Stack sx={{ pt: 3 }}>
+    <Stack sx={{ mt: 3 }}>
       <Stack>
         <Typography variant="h2" fontWeight="bold">{meta.title}</Typography>
         <Stack direction="row" spacing={0.5}>

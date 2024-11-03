@@ -1,15 +1,16 @@
-import { AppBar, Avatar, IconButton, Stack, Toolbar, Typography } from '@mui/material';
+import { AppBar, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import { GitHub, LinkedIn } from '@mui/icons-material';
+import AAvatar from './AAvatar';
 
 // TODO: cleanup
 export default function BigHeader() {
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: 'center', flexDirection: 'column', pt: 3.5, paddingBottom: 2, gap: 1 }}>
-        <Avatar sx={{ width: 150, height: 150 }} />
+        <AAvatar size={150} bsize={16} />
 
         <Stack alignItems="center">
-          <Typography variant="h6">Aeden Murray</Typography>
+          <Typography variant="h6" fontWeight="bold">Aeden Murray</Typography>
           <Typography variant="subtitle2">aeden@aedenmurray.dev</Typography>
           <Stack direction="row">
             <IconButton sx={{ color: 'inherit' }}><GitHub /></IconButton>
