@@ -1,7 +1,7 @@
 set quiet
-vite := 'npm run -s vite'
 eslint := 'npm run -s eslint'
 terraform := 'terraform -chdir=.devops/terraform'
+vite := 'npm run -s vite -- --config .devops/vite.config.js'
 
 aws:
   aws-vault exec aedenmurray
