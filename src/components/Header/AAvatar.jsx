@@ -1,4 +1,6 @@
 import { Avatar, Badge, styled } from '@mui/material';
+import { Link } from 'wouter';
+import me from './me.jpg';
 
 const StyledBadge = styled(Badge, {
   shouldForwardProp: (prop) => prop !== 'size',
@@ -36,15 +38,18 @@ const StyledBadge = styled(Badge, {
 
 export default function AAvatar({ size = 40, bsize = 8 }) {
   return (
-    <StyledBadge
-      size={bsize}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      overlap="circular"
-      variant="dot"
-    >
-      <Avatar
-        sx={{ width: size, height: size }}
-      />
-    </StyledBadge>
+    <Link href="~/">
+      <StyledBadge
+        size={bsize}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        overlap="circular"
+        variant="dot"
+      >
+        <Avatar
+          sx={{ width: size, height: size }}
+          src={me}
+        />
+      </StyledBadge>
+    </Link>
   );
 }
