@@ -1,8 +1,17 @@
-import { Tag } from '@mui/icons-material';
+import { Bookmark, Tag } from '@mui/icons-material';
 import { Card, CardActionArea, Stack } from '@mui/material';
 import CardContentFlex from 'components/ui/CardContentFlex';
 import CardDescription from 'components/ui/CardDescription';
 import CardTitle from 'components/ui/CardTitle';
+
+function Header({ title }) {
+  return (
+    <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <CardTitle>{title}</CardTitle>
+      <Bookmark fontSize="small" />
+    </Stack>
+  );
+}
 
 function Tags({ tags }) {
   if (!tags || !tags.length) {
@@ -24,7 +33,7 @@ export default function PostItem({ title, slug, tags }) {
     <Card>
       <CardActionArea href={`~/posts/${slug}`}>
         <CardContentFlex>
-          <CardTitle>{title}</CardTitle>
+          <Header title={title} />
           <Tags tags={tags} />
         </CardContentFlex>
       </CardActionArea>
