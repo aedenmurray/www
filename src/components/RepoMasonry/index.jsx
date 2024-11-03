@@ -8,8 +8,7 @@ export default function RepoMasonry() {
   useEffect(() => {
     (async () => {
       const response = await (await fetch('https://api.github.com/users/aedenmurray/repos')).json();
-      const sortedByStargazers = response.sort((a, b) => b.stargazers_count - a.stargazers_count);
-      setRepos(sortedByStargazers);
+      setRepos(response);
     })();
   }, []);
 

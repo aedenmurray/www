@@ -1,5 +1,6 @@
 import { Tag } from '@mui/icons-material';
-import { Card, CardActionArea, CardContent, Stack } from '@mui/material';
+import { Card, CardActionArea, Stack } from '@mui/material';
+import CardContentFlex from 'components/ui/CardContentFlex';
 import CardDescription from 'components/ui/CardDescription';
 import CardTitle from 'components/ui/CardTitle';
 
@@ -22,10 +23,10 @@ export default function PostItem({ title, slug, tags }) {
   return (
     <Card>
       <CardActionArea href={`~/posts/${slug}`}>
-        <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+        <CardContentFlex>
           <CardTitle>{title}</CardTitle>
           <Tags tags={tags} />
-        </CardContent>
+        </CardContentFlex>
       </CardActionArea>
     </Card>
   );
