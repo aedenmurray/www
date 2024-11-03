@@ -60,8 +60,8 @@ export default function Post() {
 
   return (
     <Stack sx={{ mt: 2 }}>
+      <Title title={meta.title} />
       <Stack spacing={0.5} sx={{ mb: 4 }}>
-        <Title title={meta.title} />
         <DateTime date={meta.date} />
         <Tags tags={meta.tags} />
       </Stack>
