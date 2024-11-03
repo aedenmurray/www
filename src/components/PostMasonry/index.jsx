@@ -15,6 +15,7 @@ export default function PostMasonry() {
           key={path}
           slug={path.split('/')[2]}
           title={posts[path].title}
+          subtitle={posts[path].subtitle}
           tags={posts[path].tags}
         />
       ))}

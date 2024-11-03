@@ -7,11 +7,21 @@ import Tags from 'components/ui/Tags';
 function Title({ title }) {
   return (
     <Typography
-      variant="h1"
+      variant="h3"
       fontWeight="bold"
-      lineHeight="normal"
     >
       {title}
+    </Typography>
+  );
+}
+
+function Subtitle({ subtitle }) {
+  if (!subtitle) return null;
+  return (
+    <Typography
+      variant="h5"
+    >
+      {subtitle}
     </Typography>
   );
 }
@@ -61,7 +71,8 @@ export default function Post() {
   return (
     <Stack sx={{ mt: 2 }}>
       <Title title={meta.title} />
-      <Stack spacing={0.5} sx={{ mb: 4 }}>
+      <Subtitle subtitle={meta.subtitle} />
+      <Stack spacing={0.5} sx={{ mb: 4, mt: 0.5 }}>
         <DateTime date={meta.date} />
         <Tags tags={meta.tags} />
       </Stack>
