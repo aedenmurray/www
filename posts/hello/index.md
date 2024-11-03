@@ -1,3 +1,7 @@
+Welcome to my blog!
+
+
+
 # Header 1
 ## Header 2
 ### Header 3
@@ -11,7 +15,9 @@
 paragraph
 
 ```
-const a = a;
+// No syntax highlighting.
+const test = 'test';
+const a = 'a';
 ```
 
 ![A medium cat image](hello/cat.jpg)
