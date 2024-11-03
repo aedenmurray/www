@@ -6,7 +6,7 @@ const StyledBadge = styled(Badge, {
   '& .MuiBadge-badge': {
     color: '#44b700',
     backgroundColor: '#44b700',
-    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    boxShadow: `0 0 0 ${size / 4}px ${theme.palette.background.paper}`,
     borderRadius: '100%',
     height: size,
     width: size,
@@ -42,7 +42,9 @@ export default function AAvatar({ size = 40, bsize = 8 }) {
       overlap="circular"
       variant="dot"
     >
-      <Avatar sx={{ width: size, height: size }} />
+      <Avatar
+        sx={{ width: size, height: size }}
+      />
     </StyledBadge>
   );
 }
