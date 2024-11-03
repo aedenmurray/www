@@ -2,13 +2,14 @@ import { Tag } from '@mui/icons-material';
 import { Typography, Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
-import { useParams } from 'wouter';
+import { useLocation, useParams } from 'wouter';
 
 export default function Post() {
-  const { slug } = useParams();
   const [meta, setMeta] = useState(null);
-  const [markdown, setMarkdown] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [markdown, setMarkdown] = useState(null);
+  const [, setLocation] = useLocation();
+  const { slug } = useParams();
 
   useEffect(() => {
     const posts = import.meta.glob('/posts/**/*', {
@@ -19,7 +20,8 @@ export default function Post() {
     const importMeta = posts[`/posts/${slug}/meta.json`];
     const importMarkdown = posts[`/posts/${slug}/index.md`];
     if (!importMeta || !importMarkdown) {
-      return; // TODO: 404;
+      setLocation('~/posts');
+      return;
     }
 
     (async () => {
@@ -36,16 +38,18 @@ export default function Post() {
 
   if (loading) return <p>loading</p>;
   return (
-    <Stack>
+    <Stack sx={{ pt: 3 }}>
       <Stack>
-        <Typography variant="h5">{meta.title}</Typography>
+        <Typography variant="h2" fontWeight="bold">{meta.title}</Typography>
         <Stack direction="row" spacing={0.5}>
           <Tag fontSize="small" />
-          <Typography variant="caption">{meta.tags.join(', ')}</Typography>
+          <Typography variant="subtitle2">{meta.tags.join(', ')}</Typography>
         </Stack>
       </Stack>
 
-      <Markdown>{markdown}</Markdown>
+      <Markdown>
+        {markdown}
+      </Markdown>
     </Stack>
   );
 }

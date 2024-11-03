@@ -5,7 +5,7 @@ import { Tag } from '@mui/icons-material';
 export default function PostItem({ title, slug, tags }) {
   return (
     <Card>
-      <CardActionArea href={`/posts/${slug}`}>
+      <CardActionArea href={`~/posts/${slug}`}>
         <CardContent>
           <Stack spacing={0.5}>
             <CardHeader title={title} />
