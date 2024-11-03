@@ -69,7 +69,7 @@ export default function Post() {
   if (loading) return <p>loading</p>;
 
   return (
-    <Stack sx={{ mt: 2 }}>
+    <Stack>
       <Title title={meta.title} />
       <Subtitle subtitle={meta.subtitle} />
       <Stack spacing={0.5} sx={{ mb: 4, mt: 0.5 }}>
