@@ -32,21 +32,6 @@ export default createTheme(base, {
       },
     },
 
-    MuiCardHeader: {
-      defaultProps: {
-        titleTypographyProps: {
-          fontWeight: 'bold',
-          variant: 'body2',
-        },
-      },
-
-      styleOverrides: {
-        root: {
-          padding: 0,
-        },
-      },
-    },
-
     MuiLink: {
       defaultProps: {
         component: WouterLink,
