@@ -1,6 +1,6 @@
 {
   "noEmit": true,
-  "include": ["src"],
+  "include": ["src", "DynamicAvatar.jsx", "DynamicToolbar.jsx"],
   "exclude": ["node_modules"],
   "compilerOptions": {
       "baseUrl": "src"
