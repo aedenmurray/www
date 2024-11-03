@@ -12,9 +12,21 @@ export default function BigHeader() {
         <Stack alignItems="center">
           <Typography variant="h6" fontWeight="bold">Aeden Murray</Typography>
           <Typography variant="subtitle2">aeden@aedenmurray.dev</Typography>
+
           <Stack direction="row">
-            <IconButton sx={{ color: 'inherit' }}><GitHub /></IconButton>
-            <IconButton sx={{ color: 'inherit' }}><LinkedIn /></IconButton>
+            <IconButton
+              sx={{ color: 'inherit' }}
+              href="https://github.com/aedenmurray"
+            >
+              <GitHub />
+            </IconButton>
+
+            <IconButton
+              sx={{ color: 'inherit' }}
+              href="https://linkedin.com/in/aedenmurray"
+            >
+              <LinkedIn />
+            </IconButton>
           </Stack>
         </Stack>
       </Toolbar>
