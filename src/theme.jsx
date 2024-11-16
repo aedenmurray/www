@@ -28,12 +28,6 @@ export default createTheme(base, {
       },
     },
 
-    MuiCard: {
-      defaultProps: {
-        variant: 'outlined',
-      },
-    },
-
     MuiLink: {
       defaultProps: {
         component: WouterLink,
