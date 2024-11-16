@@ -1,5 +1,5 @@
 import { Masonry } from '@mui/lab';
-import PostCard from './PostCard';
+import PostCard from '../PostCard';
 
 export default function PostMasonry() {
   // TODO: sort by date

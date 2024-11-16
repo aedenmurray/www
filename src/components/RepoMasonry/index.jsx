@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Masonry } from '@mui/lab';
-import RepoCard from './RepoCard';
+import RepoCard from '../RepoCard';
 
 export default function RepoMasonry() {
   const [repos, setRepos] = useState([]);
