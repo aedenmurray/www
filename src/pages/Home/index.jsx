@@ -4,6 +4,9 @@ import RepoCard from 'components/Cards/RepoCard';
 import usePosts from 'hooks/usePosts';
 import useRepos from 'hooks/useRepos';
 
+// TODO: fix flicker: https://github.com/mui/material-ui/issues/36673
+// Perhaps: https://www.npmjs.com/package/react-responsive-masonry
+
 export default function Home() {
   const postsHook = usePosts();
   const reposHook = useRepos();
