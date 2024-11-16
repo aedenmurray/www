@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
 import { Typography, Stack } from '@mui/material';
-import { useLocation, useParams } from 'wouter';
+import { useParams } from 'wouter';
 import Markdown from 'components/ui/Markdown';
 import Tags from 'components/ui/Tags';
+import usePost from 'hooks/usePost';
 
 function Title({ title }) {
   return (
@@ -11,17 +11,6 @@ function Title({ title }) {
       fontWeight="bold"
     >
       {title}
-    </Typography>
-  );
-}
-
-function Subtitle({ subtitle }) {
-  if (!subtitle) return null;
-  return (
-    <Typography
-      variant="h5"
-    >
-      {subtitle}
     </Typography>
   );
 }
@@ -35,50 +24,22 @@ function DateTime({ date }) {
 }
 
 export default function Post() {
-  const [meta, setMeta] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [markdown, setMarkdown] = useState(null);
-  const [, setLocation] = useLocation();
   const { slug } = useParams();
+  const { post, loading, error } = usePost(slug);
 
-  useEffect(() => {
-    const posts = import.meta.glob('/posts/**/*', {
-      import: 'default',
-      query: 'raw',
-    });
-
-    const importMeta = posts[`/posts/${slug}/meta.json`];
-    const importMarkdown = posts[`/posts/${slug}/index.md`];
-    if (!importMeta || !importMarkdown) {
-      setLocation('~/posts');
-      return;
-    }
-
-    (async () => {
-      const [mdResponse, metaResponse] = await Promise.all([
-        importMarkdown(),
-        importMeta(),
-      ]);
-
-      setMeta(JSON.parse(metaResponse));
-      setMarkdown(mdResponse);
-      setLoading(false);
-    })();
-  }, [slug]);
-
-  if (loading) return <p>loading</p>;
+  if (loading) return null; // TODO: loading state
+  if (error) return null; // TODO: error state
 
   return (
     <Stack>
-      <Title title={meta.title} />
-      <Subtitle subtitle={meta.subtitle} />
+      <Title title={post.meta.title} />
       <Stack spacing={0.5} sx={{ mb: 4, mt: 0.5 }}>
-        <DateTime date={meta.date} />
-        <Tags tags={meta.tags} />
+        <DateTime date={post.meta.date} />
+        <Tags tags={post.meta.tags} />
       </Stack>
 
       <Markdown>
-        {markdown}
+        {post.markdown}
       </Markdown>
     </Stack>
   );

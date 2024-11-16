@@ -1,22 +1,20 @@
 import { Masonry } from '@mui/lab';
+import usePosts from 'hooks/usePosts';
 import PostCard from '../Cards/PostCard';
 
 export default function PostMasonry() {
-  // TODO: sort by date
-  const posts = import.meta.glob('/posts/**/meta.json', {
-    import: 'default',
-    eager: true,
-  });
+  const { posts, loading, error } = usePosts();
+  if (loading) return null; // TODO: loading state
+  if (error) return null; // TODO: error state
 
   return (
     <Masonry>
-      {Object.keys(posts).map((path) => (
+      {posts.map((post) => (
         <PostCard
-          key={path}
-          slug={path.split('/')[2]}
-          title={posts[path].title}
-          subtitle={posts[path].subtitle}
-          tags={posts[path].tags}
+          key={post.slug}
+          slug={post.slug}
+          tags={post.tags}
+          title={post.title}
         />
       ))}
     </Masonry>
