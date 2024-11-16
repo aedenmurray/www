@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
 import { Masonry } from '@mui/lab';
+import useRepos from 'hooks/useRepos';
 import RepoCard from '../Cards/RepoCard';
 
 export default function RepoMasonry() {
-  const [repos, setRepos] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const response = await (await fetch('https://api.github.com/users/aedenmurray/repos')).json();
-      setRepos(response);
-    })();
-  }, []);
+  const { repos, loading, error } = useRepos();
+  if (loading) return null; // TODO: loading state
+  if (error) return null; // TODO: loading state
 
   return (
     <Masonry>
