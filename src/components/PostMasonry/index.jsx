@@ -1,5 +1,5 @@
 import { Masonry } from '@mui/lab';
-import PostItem from './PostItem';
+import PostCard from './PostCard';
 
 export default function PostMasonry() {
   // TODO: sort by date
@@ -11,7 +11,7 @@ export default function PostMasonry() {
   return (
     <Masonry>
       {Object.keys(posts).map((path) => (
-        <PostItem
+        <PostCard
           key={path}
           slug={path.split('/')[2]}
           title={posts[path].title}
