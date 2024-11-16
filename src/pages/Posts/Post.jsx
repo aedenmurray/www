@@ -1,4 +1,4 @@
-import { Typography, Stack } from '@mui/material';
+import { Typography, Stack, Box } from '@mui/material';
 import { useParams } from 'wouter';
 import Markdown from 'components/ui/Markdown';
 import Tags from 'components/ui/Tags';
@@ -32,11 +32,11 @@ export default function Post() {
 
   return (
     <Stack>
-      <Title title={post.meta.title} />
-      <Stack spacing={0.5} sx={{ mb: 4, mt: 0.5 }}>
+      <Box mb={3}>
         <DateTime date={post.meta.date} />
+        <Title title={post.meta.title} />
         <Tags tags={post.meta.tags} />
-      </Stack>
+      </Box>
 
       <Markdown>
         {post.md}
