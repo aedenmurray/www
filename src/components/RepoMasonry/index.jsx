@@ -14,7 +14,6 @@ export default function RepoMasonry() {
           key={repo.id}
           name={repo.name}
           description={repo.description}
-          stargazers={repo.stargazers_count}
         />
       ))}
     </Masonry>
