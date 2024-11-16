@@ -1,5 +1,5 @@
-import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import ReactDOM from 'react-dom/client';
+import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import { Route } from 'wouter';
 import Header from 'components/Header';
 import Home from 'pages/Home';
