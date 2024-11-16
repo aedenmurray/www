@@ -14,10 +14,18 @@ async function fetcher(key) {
     },
   );
 
-  // TODO: 404
+  const metaImportFn = metaModules[`/${key}/meta.json`];
+  const mdImportFn = mdModules[`/${key}/index.md`];
+
+  if (!metaImportFn || !mdImportFn) {
+    const error = new Error('Post not found!');
+    error.status = 404;
+    throw error;
+  }
+
   const [meta, md] = await Promise.all([
-    metaModules[`/${key}/meta.json`](),
-    mdModules[`/${key}/index.md`](),
+    metaImportFn(),
+    mdImportFn(),
   ]);
 
   return {
