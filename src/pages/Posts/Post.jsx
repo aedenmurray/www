@@ -39,7 +39,7 @@ export default function Post() {
       </Stack>
 
       <Markdown>
-        {post.markdown}
+        {post.md}
       </Markdown>
     </Stack>
   );
