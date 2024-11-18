@@ -1,6 +1,6 @@
 import { Avatar, Badge, styled } from '@mui/material';
 import { Link } from 'wouter';
-import me from './me.jpg';
+import me from './me.avif';
 
 const StyledBadge = styled(Badge, {
   shouldForwardProp: (prop) => prop !== 'size',
