@@ -33,6 +33,7 @@ resource "aws_cloudfront_distribution" "www" {
     cached_methods         = ["HEAD", "GET", "OPTIONS"]
     viewer_protocol_policy = "redirect-to-https"
     target_origin_id       = local.domain
+    compress               = true
   }
 
   custom_error_response {
