@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import jsconfigPaths from 'vite-jsconfig-paths';
@@ -7,8 +5,8 @@ import jsconfigPaths from 'vite-jsconfig-paths';
 const plugins = [react(), jsconfigPaths()];
 const server = { open: false, port: 8000, hmr: false };
 
-const build = { 
-  emptyOutDir: true ,
+const build = {
+  emptyOutDir: true,
   outDir: '/tmp/www',
   assetsInlineLimit: (filePath) => {
     const extension = filePath.split('.').pop();
