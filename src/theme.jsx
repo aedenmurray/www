@@ -33,16 +33,5 @@ export default createTheme(base, {
         component: WouterLink,
       },
     },
-
-    MuiMasonry: {
-      defaultProps: {
-        columns: {
-          xs: 1,
-          sm: 2,
-          md: 3,
-          lg: 4,
-        },
-      },
-    },
   },
 });
