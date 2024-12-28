@@ -1,11 +1,13 @@
+import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import { SWRConfig } from 'swr';
 import { Route } from 'wouter';
 import Header from 'components/Header';
-import Home from 'pages/Home';
-import Posts from 'pages/Posts';
 import theme from 'theme';
+
+const Posts = lazy(() => import('pages/Posts'));
+const Home = lazy(() => import('pages/Home'));
 
 const fetcher = (...args) => (
   fetch(...args)
@@ -30,8 +32,10 @@ root.render(
       <CssBaseline>
         <Header />
         <Container sx={{ py: 2 }}>
-          <Route path="/posts" nest><Posts /></Route>
-          <Route path="/"><Home /></Route>
+          <Suspense>
+            <Route path="/posts" nest><Posts /></Route>
+            <Route path="/"><Home /></Route>
+          </Suspense>
         </Container>
       </CssBaseline>
     </ThemeProvider>
