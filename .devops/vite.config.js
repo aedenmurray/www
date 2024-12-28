@@ -4,6 +4,7 @@ import jsconfigPaths from 'vite-jsconfig-paths';
 
 const plugins = [react(), jsconfigPaths()];
 const server = { open: false, port: 8000, hmr: false };
+const esbuild = { legalComments: 'none' };
 
 const build = {
   emptyOutDir: true,
@@ -16,6 +17,7 @@ const build = {
 };
 
 export default defineConfig({
+  esbuild,
   plugins,
   server,
   build,
