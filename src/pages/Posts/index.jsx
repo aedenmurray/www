@@ -1,7 +1,7 @@
 import { Route } from 'wouter';
+import Masonry from 'components/ui/Masonry';
 import usePosts from 'hooks/usePosts';
 import PostCard from 'components/Cards/PostCard';
-import { Masonry } from '@mui/lab';
 import Post from './Post';
 
 function List() {
