@@ -6,6 +6,10 @@ resource "aws_cloudfront_origin_access_control" "www" {
   signing_protocol                  = "sigv4"
 }
 
+data "aws_cloudfront_cache_policy" "main" {
+  name = "Managed-CachingOptimized"
+}
+
 resource "aws_cloudfront_distribution" "www" {
   enabled             = true
   is_ipv6_enabled     = true
@@ -24,24 +28,11 @@ resource "aws_cloudfront_distribution" "www" {
   }
 
   default_cache_behavior {
-    allowed_methods = ["HEAD", "GET", "OPTIONS"]
-    cached_methods  = ["HEAD", "GET", "OPTIONS"]
-
-    compress               = true
-    target_origin_id       = local.domain
+    cache_policy_id        = data.aws_cloudfront_cache_policy.main.id
+    allowed_methods        = ["HEAD", "GET", "OPTIONS"]
+    cached_methods         = ["HEAD", "GET", "OPTIONS"]
     viewer_protocol_policy = "redirect-to-https"
-
-    default_ttl = 60 * 60
-    max_ttl     = 60 * 60 * 24
-    min_ttl     = 60
-
-    forwarded_values {
-      query_string = false
-
-      cookies {
-        forward = "none"
-      }
-    }
+    target_origin_id       = local.domain
   }
 
   custom_error_response {
