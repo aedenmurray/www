@@ -17,7 +17,18 @@ import '@fontsource/roboto-mono/400.css';
 import '@fontsource/roboto-mono/500.css';
 import '@fontsource/roboto-mono/700.css';
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const fetcher = (...args) => (
+  fetch(...args)
+    .then((res) => {
+      if (!res.ok) {
+        const msg = `Error fetching: ${args[0]}`;
+        throw new Error(msg);
+      }
+
+      return res.json();
+    })
+);
+
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 

@@ -19,5 +19,7 @@ async function fetcher() {
 
 export default function usePosts() {
   const { data, error, isLoading } = useSWR('posts', fetcher);
-  return { posts: data, loading: isLoading, error };
+  return !error
+    ? { posts: data ?? [], loading: isLoading, error }
+    : { posts: [], loading: isLoading, error };
 }

@@ -7,16 +7,13 @@ import useRepos from 'hooks/useRepos';
 export default function Home() {
   const postsHook = usePosts();
   const reposHook = useRepos();
-  const loading = postsHook.loading || reposHook.loading;
-  const error = postsHook.error || reposHook.error;
-  if (loading) return null; // TODO: loading state
-  if (error) return null; // TODO: error state
 
   const { posts } = postsHook;
   const { repos } = reposHook;
 
   return (
     <Masonry>
+
       {posts.map((post) => (
         <PostCard
           key={post.slug}
