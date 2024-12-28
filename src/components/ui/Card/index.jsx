@@ -12,10 +12,10 @@ const CardContentFlex = styled(MuiCardContent)(({ theme }) => ({
   display: 'flex',
 }));
 
-function Card({ href, children }) {
+function Card({ href, children, sx }) {
   if (href) {
     return (
-      <MuiCard>
+      <MuiCard sx={sx}>
         <MuiCardActionArea href={href}>
           <CardContentFlex>
             {children}
@@ -26,7 +26,7 @@ function Card({ href, children }) {
   }
 
   return (
-    <MuiCard>
+    <MuiCard sx={sx}>
       <CardContentFlex>
         {children}
       </CardContentFlex>

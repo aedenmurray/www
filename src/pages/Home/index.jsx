@@ -3,6 +3,7 @@ import PostCard from 'components/Cards/PostCard';
 import RepoCard from 'components/Cards/RepoCard';
 import usePosts from 'hooks/usePosts';
 import useRepos from 'hooks/useRepos';
+import ErrorCard from 'components/Cards/ErrorCard';
 
 export default function Home() {
   const postsHook = usePosts();
@@ -13,7 +14,6 @@ export default function Home() {
 
   return (
     <Masonry>
-
       {posts.map((post) => (
         <PostCard
           key={post.slug}
@@ -23,6 +23,16 @@ export default function Home() {
         />
       ))}
 
+      {postsHook.error && (
+        <ErrorCard
+          title="Fetching Posts Failed"
+          message={`
+              There was an issue while fetching blog posts. 
+              Please check the network console to learn more.
+            `}
+        />
+      )}
+
       {repos.map((repo) => (
         <RepoCard
           key={repo.id}
@@ -30,6 +40,16 @@ export default function Home() {
           description={repo.description}
         />
       ))}
+
+      {reposHook.error && (
+        <ErrorCard
+          title="Fetching Repositories Failed"
+          message={`
+            There was an issue while fetching GitHub repositories. 
+            Please check the network console to learn more.
+          `}
+        />
+      )}
     </Masonry>
   );
 }
