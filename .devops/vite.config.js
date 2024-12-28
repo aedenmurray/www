@@ -6,7 +6,16 @@ import jsconfigPaths from 'vite-jsconfig-paths';
 
 const plugins = [react(), jsconfigPaths()];
 const server = { open: false, port: 8000, hmr: false };
-const build = { outDir: '/tmp/www', emptyOutDir: true };
+
+const build = { 
+  emptyOutDir: true ,
+  outDir: '/tmp/www',
+  assetsInlineLimit: (filePath) => {
+    const extension = filePath.split('.').pop();
+    return !['avif', 'woff', 'woff2'].includes(extension);
+    // Don't inline fonts, can cause unused fonts to be inlined.
+  }
+};
 
 export default defineConfig({
   plugins,
