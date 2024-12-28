@@ -21,8 +21,10 @@ const fetcher = (...args) => (
   fetch(...args)
     .then((res) => {
       if (!res.ok) {
-        const msg = `Error fetching: ${args[0]}`;
-        throw new Error(msg);
+        const error = new Error(`Error fetching: ${args[0]}`);
+        error.headers = res.headers;
+        error.status = res.status;
+        throw error;
       }
 
       return res.json();
