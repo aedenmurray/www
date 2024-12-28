@@ -17,6 +17,7 @@ export default function BigHeader() {
             <IconButton
               sx={{ color: 'inherit' }}
               href="https://github.com/aedenmurray"
+              aria-label="Aeden's GitHub"
               target="_blank"
             >
               <GitHub />
@@ -25,6 +26,7 @@ export default function BigHeader() {
             <IconButton
               sx={{ color: 'inherit' }}
               href="https://linkedin.com/in/aedenmurray"
+              aria-label="Aeden's LinkedIn"
               target="_blank"
             >
               <LinkedIn />

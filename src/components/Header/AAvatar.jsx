@@ -47,6 +47,7 @@ export default function AAvatar({ size = 40, bsize = 8 }) {
       >
         <Avatar
           sx={{ width: size, height: size }}
+          alt="Aeden Murray"
           src={me}
         />
       </StyledBadge>
