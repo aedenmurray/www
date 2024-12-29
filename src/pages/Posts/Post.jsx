@@ -4,6 +4,7 @@ import Markdown from 'components/ui/Markdown';
 import Tags from 'components/ui/Tags';
 import usePost from 'hooks/usePost';
 import Spinner from 'components/ui/Spinner';
+import { useEffect } from 'react';
 
 function Title({ title }) {
   return (
@@ -28,6 +29,13 @@ export default function Post() {
   const { slug } = useParams();
   const { post, loading, error } = usePost(slug);
   if (error) return null; // TODO: error state
+
+  useEffect(() => {
+    const currentTitle = document.title;
+    if (!post?.meta?.title) return () => {};
+    document.title = `${post.meta.title} - ${currentTitle}`;
+    return () => { document.title = currentTitle; };
+  }, [post]);
 
   if (loading) {
     return <Spinner />;
