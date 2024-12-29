@@ -5,7 +5,7 @@ import { visit } from 'unist-util-visit';
 
 // TODO: Cleanup
 
-const images = import.meta.glob('/posts/**/*.png', { eager: true, query: '?url', import: 'default' });
+const images = import.meta.glob('/posts/**/*.png', { eager: true, query: '?url&format=avif', import: 'default' });
 const img = ({ alt, src }) => <img alt={alt} src={images[src]} style={{ width: '100%', borderRadius: 5 }} />;
 
 const h1 = ({ children }) => <Typography variant="h1" fontWeight="bold" children={children} />;

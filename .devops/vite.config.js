@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import jsconfigPaths from 'vite-jsconfig-paths';
+import { imagetools } from 'vite-imagetools'
 
-const plugins = [react(), jsconfigPaths()];
+const plugins = [react(), jsconfigPaths(), imagetools()];
 const server = { open: false, port: 8000, hmr: false };
 const esbuild = { legalComments: 'none' };
 
