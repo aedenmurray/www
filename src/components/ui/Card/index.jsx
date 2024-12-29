@@ -4,6 +4,7 @@ import MuiCardActionArea from '@mui/material/CardActionArea';
 import { styled } from '@mui/material';
 
 import CardHeader from './CardHeader';
+import CardCaption from './CardCaption';
 import CardDescription from './CardDescription';
 
 const CardContentFlex = styled(MuiCardContent)(({ theme }) => ({
@@ -35,5 +36,6 @@ function Card({ href, children, sx }) {
 }
 
 Card.Header = CardHeader;
+Card.Caption = CardCaption;
 Card.Description = CardDescription;
 export default Card;

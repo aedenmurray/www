@@ -20,6 +20,7 @@ function List() {
           key={post.slug}
           slug={post.slug}
           tags={post.tags}
+          date={post.date}
           title={post.title}
         />
       ))}

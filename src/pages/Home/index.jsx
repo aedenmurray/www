@@ -27,9 +27,10 @@ export default function Home() {
       {posts.map((post) => (
         <PostCard
           key={post.slug}
-          title={post.title}
           slug={post.slug}
           tags={post.tags}
+          date={post.date}
+          title={post.title}
         />
       ))}
 
