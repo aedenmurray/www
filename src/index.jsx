@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { ThemeProvider, CssBaseline, Container } from '@mui/material';
+import { ThemeProvider, CssBaseline, Container, Stack } from '@mui/material';
 import { SWRConfig } from 'swr';
 import { Route } from 'wouter';
 import Header from 'components/Header';
@@ -37,13 +37,15 @@ root.render(
     <SWRConfig value={{ fetcher }}>
       <ThemeProvider theme={theme}>
         <CssBaseline>
-          <Header />
-          <Container sx={{ py: 2 }}>
-            <Suspense>
-              <Route path="/posts" nest><Posts /></Route>
-              <Route path="/"><Home /></Route>
-            </Suspense>
-          </Container>
+          <Stack sx={{ height: '100%' }}>
+            <Header />
+            <Container sx={{ py: 2, position: 'relative', flexGrow: 1 }}>
+              <Suspense>
+                <Route path="/posts" nest><Posts /></Route>
+                <Route path="/"><Home /></Route>
+              </Suspense>
+            </Container>
+          </Stack>
         </CssBaseline>
       </ThemeProvider>
     </SWRConfig>

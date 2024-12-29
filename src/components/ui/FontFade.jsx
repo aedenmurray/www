@@ -11,7 +11,9 @@ export default function FontFade({ children }) {
 
   return (
     <Fade in={loaded}>
-      <div>{children}</div>
+      <div style={{ height: '100%' }}>
+        {children}
+      </div>
     </Fade>
   );
 }
