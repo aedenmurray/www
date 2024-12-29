@@ -1,24 +1,23 @@
-import { useTheme } from '@emotion/react';
-import RRMasonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import { useTheme } from '@mui/material';
+import RMasonry, { ResponsiveColumns } from 'rmasonry';
 
 export default function Masonry({ children }) {
   const { breakpoints, spacing } = useTheme();
 
   return (
-    <ResponsiveMasonry
-      columnsCountBreakPoints={{
+    <ResponsiveColumns
+      breakpoints={{
         [breakpoints.values.xs]: 1,
         [breakpoints.values.sm]: 2,
         [breakpoints.values.md]: 3,
         [breakpoints.values.lg]: 4,
-        [breakpoints.values.xl]: 5,
       }}
     >
-      <RRMasonry
+      <RMasonry
         gutter={spacing(1)}
       >
         {children}
-      </RRMasonry>
-    </ResponsiveMasonry>
+      </RMasonry>
+    </ResponsiveColumns>
   );
 }

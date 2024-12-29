@@ -1,9 +1,10 @@
-import Masonry from 'components/ui/Masonry';
+// import Masonry from 'components/ui/Masonry';
 import PostCard from 'components/Cards/PostCard';
 import RepoCard from 'components/Cards/RepoCard';
 import usePosts from 'hooks/usePosts';
 import useRepos from 'hooks/useRepos';
 import ErrorCard from 'components/Cards/ErrorCard';
+import Masonry from 'components/ui/Masonry';
 
 export default function Home() {
   const postsHook = usePosts();
