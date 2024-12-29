@@ -16,6 +16,9 @@ const base = responsiveFontSizes(
   createTheme({
     palette: {
       mode: 'dark',
+      primary: {
+        main: '#fff',
+      },
     },
   }),
 );
