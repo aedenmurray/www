@@ -1,6 +1,7 @@
-import { Avatar, Badge, styled } from '@mui/material';
 import { Link } from 'wouter';
-import me from './me.avif';
+import { Avatar, Badge, styled } from '@mui/material';
+// eslint-disable-next-line import/no-unresolved
+import me from './me.png?format=avif&w=400';
 
 const StyledBadge = styled(Badge, {
   shouldForwardProp: (prop) => prop !== 'size',
