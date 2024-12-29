@@ -1,13 +1,17 @@
 import { Route } from 'wouter';
-import Masonry from 'components/ui/Masonry';
 import usePosts from 'hooks/usePosts';
+import Masonry from 'components/ui/Masonry';
 import PostCard from 'components/Cards/PostCard';
+import Spinner from 'components/ui/Spinner';
 import Post from './Post';
 
 function List() {
   const { posts, loading, error } = usePosts();
-  if (loading) return null; // TODO: loading state
   if (error) return null; // TODO: error state
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <Masonry>

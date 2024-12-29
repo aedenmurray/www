@@ -1,23 +1,27 @@
-import { useTheme } from '@mui/material';
+import { useTheme, Fade } from '@mui/material';
 import RMasonry, { ResponsiveColumns } from 'rmasonry';
 
 export default function Masonry({ children }) {
   const { breakpoints, spacing } = useTheme();
 
   return (
-    <ResponsiveColumns
-      breakpoints={{
-        [breakpoints.values.xs]: 1,
-        [breakpoints.values.sm]: 2,
-        [breakpoints.values.md]: 3,
-        [breakpoints.values.lg]: 4,
-      }}
-    >
-      <RMasonry
-        gutter={spacing(1)}
-      >
-        {children}
-      </RMasonry>
-    </ResponsiveColumns>
+    <Fade in>
+      <div>
+        <ResponsiveColumns
+          breakpoints={{
+            [breakpoints.values.xs]: 1,
+            [breakpoints.values.sm]: 2,
+            [breakpoints.values.md]: 3,
+            [breakpoints.values.lg]: 4,
+          }}
+        >
+          <RMasonry
+            gutter={spacing(1)}
+          >
+            {children}
+          </RMasonry>
+        </ResponsiveColumns>
+      </div>
+    </Fade>
   );
 }

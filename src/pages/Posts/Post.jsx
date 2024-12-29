@@ -26,7 +26,6 @@ function DateTime({ date }) {
 export default function Post() {
   const { slug } = useParams();
   const { post, loading, error } = usePost(slug);
-
   if (loading) return null; // TODO: loading state
   if (error) return null; // TODO: error state
 
