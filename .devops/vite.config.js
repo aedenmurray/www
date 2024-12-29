@@ -9,14 +9,11 @@ const esbuild = { legalComments: 'none' };
 const build = {
   emptyOutDir: true,
   outDir: '/tmp/www',
-  assetsInlineLimit: (filePath) => {
-    const extension = filePath.split('.').pop();
-    return !['avif', 'woff', 'woff2'].includes(extension);
-    // Don't inline fonts, can cause unused fonts to be inlined.
-  }
+  assetsInlineLimit: 0
 };
 
 export default defineConfig({
+  assetsInclude: ['**/*.md'],
   esbuild,
   plugins,
   server,

@@ -5,16 +5,19 @@ import { visit } from 'unist-util-visit';
 
 // TODO: Cleanup
 
+const images = import.meta.glob('/posts/**/*.png', { eager: true, query: '?url', import: 'default' });
+const img = ({ alt, src }) => <img alt={alt} src={images[src]} style={{ width: '100%', borderRadius: 5 }} />;
+
 const h1 = ({ children }) => <Typography variant="h1" fontWeight="bold" children={children} />;
 const h2 = ({ children }) => <Typography variant="h2" fontWeight="bold" children={children} />;
 const h3 = ({ children }) => <Typography variant="h3" fontWeight="bold" children={children} />;
 const h4 = ({ children }) => <Typography variant="h4" fontWeight="bold" children={children} />;
 const h5 = ({ children }) => <Typography variant="h5" fontWeight="bold" children={children} />;
 const h6 = ({ children }) => <Typography variant="h6" fontWeight="bold" children={children} />;
-const img = ({ alt, src }) => <img alt={alt} src={src} style={{ width: '100%', borderRadius: 5 }} />;
 const a = ({ children, href }) => <Link href={href}>{children}</Link>;
 const p = ({ children }) => <Typography children={children} />;
 const hr = () => <Divider sx={{ my: 1 }} />;
+
 const code = ({ children, node }) => {
   const { palette: { action } } = useTheme();
   const backgroundColor = action.selected;
