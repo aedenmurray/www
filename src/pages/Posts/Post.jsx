@@ -11,6 +11,7 @@ function Title({ title }) {
     <Typography
       variant="h3"
       fontWeight="bold"
+      sx={{ mb: 1 }}
     >
       {title}
     </Typography>

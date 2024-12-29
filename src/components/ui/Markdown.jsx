@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import { Divider, Typography, useTheme, Box } from '@mui/material';
+import { Divider, Typography, useTheme, Box, Link } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
 import { visit } from 'unist-util-visit';
 
@@ -11,6 +11,8 @@ const h3 = ({ children }) => <Typography variant="h3" fontWeight="bold" children
 const h4 = ({ children }) => <Typography variant="h4" fontWeight="bold" children={children} />;
 const h5 = ({ children }) => <Typography variant="h5" fontWeight="bold" children={children} />;
 const h6 = ({ children }) => <Typography variant="h6" fontWeight="bold" children={children} />;
+const img = ({ alt, src }) => <img alt={alt} src={src} style={{ width: '100%', borderRadius: 5 }} />;
+const a = ({ children, href }) => <Link href={href}>{children}</Link>;
 const p = ({ children }) => <Typography children={children} />;
 const hr = () => <Divider sx={{ my: 1 }} />;
 const code = ({ children, node }) => {
@@ -24,9 +26,7 @@ const code = ({ children, node }) => {
         fontFamily="monospace"
         children={children}
         sx={{
-          borderRadius: '4px',
           backgroundColor,
-          py: 0.5,
           px: 0.5,
         }}
       />
@@ -35,9 +35,7 @@ const code = ({ children, node }) => {
 
   return (
     <Box sx={{
-      borderRadius: '4px',
       backgroundColor,
-      py: 0.5,
       px: 0.5,
     }}
     >
@@ -55,7 +53,7 @@ export default function Markdown({ children }) {
   return (
     <ReactMarkdown
       children={children}
-      components={{ h1, h2, h3, h4, h5, h6, p, hr, code }}
+      components={{ h1, h2, h3, h4, h5, h6, p, hr, code, a, img }}
       rehypePlugins={[
         () => (tree) => {
           visit(tree, { tagName: 'code' }, (node, idx, parent) => {
