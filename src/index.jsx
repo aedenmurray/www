@@ -1,11 +1,11 @@
+import { Route } from 'wouter';
+import { SWRConfig } from 'swr';
 import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider, CssBaseline, Container, Stack } from '@mui/material';
-import { SWRConfig } from 'swr';
-import { Route } from 'wouter';
 import Header from 'components/Header';
-import theme from 'theme';
 import FontFade from 'components/ui/FontFade';
+import theme from 'theme';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
