@@ -5,8 +5,10 @@ export default function FontFade({ children }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    document.fonts.ready
-      .then(() => setLoaded(true));
+    Promise.all([
+      document.fonts.ready,
+      new Promise((resolve) => { setTimeout(resolve, 750); }),
+    ]).then(() => setLoaded(true));
   }, []);
 
   return (
