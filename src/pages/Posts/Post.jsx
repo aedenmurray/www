@@ -1,8 +1,9 @@
-import { Typography, Stack, Box } from '@mui/material';
+import { Typography, Stack, Box, Fade } from '@mui/material';
 import { useParams } from 'wouter';
 import Markdown from 'components/ui/Markdown';
 import Tags from 'components/ui/Tags';
 import usePost from 'hooks/usePost';
+import Spinner from 'components/ui/Spinner';
 
 function Title({ title }) {
   return (
@@ -26,20 +27,25 @@ function DateTime({ date }) {
 export default function Post() {
   const { slug } = useParams();
   const { post, loading, error } = usePost(slug);
-  if (loading) return null; // TODO: loading state
   if (error) return null; // TODO: error state
 
-  return (
-    <Stack>
-      <Box mb={3}>
-        <DateTime date={post.meta.date} />
-        <Title title={post.meta.title} />
-        <Tags tags={post.meta.tags} />
-      </Box>
+  if (loading) {
+    return <Spinner />;
+  }
 
-      <Markdown>
-        {post.md}
-      </Markdown>
-    </Stack>
+  return (
+    <Fade in>
+      <Stack>
+        <Box mb={3}>
+          <DateTime date={post.meta.date} />
+          <Title title={post.meta.title} />
+          <Tags tags={post.meta.tags} />
+        </Box>
+
+        <Markdown>
+          {post.md}
+        </Markdown>
+      </Stack>
+    </Fade>
   );
 }
