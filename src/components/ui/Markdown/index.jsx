@@ -2,11 +2,10 @@
 import { Divider, Typography, useTheme, Box, Link } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
 import { visit } from 'unist-util-visit';
+import Paragraph from './Paragraph';
+import Img from './Img';
 
 // TODO: Cleanup
-
-const images = import.meta.glob('/posts/**/*.png', { eager: true, query: '?url&format=avif', import: 'default' });
-const img = ({ alt, src }) => <img alt={alt} src={images[src]} style={{ width: '100%', borderRadius: 5 }} />;
 
 const h1 = ({ children }) => <Typography variant="h1" fontWeight="bold" children={children} />;
 const h2 = ({ children }) => <Typography variant="h2" fontWeight="bold" children={children} />;
@@ -15,7 +14,6 @@ const h4 = ({ children }) => <Typography variant="h4" fontWeight="bold" children
 const h5 = ({ children }) => <Typography variant="h5" fontWeight="bold" children={children} />;
 const h6 = ({ children }) => <Typography variant="h6" fontWeight="bold" children={children} />;
 const a = ({ children, href }) => <Link href={href}>{children}</Link>;
-const p = ({ children }) => <Typography children={children} />;
 const hr = () => <Divider sx={{ my: 1 }} />;
 
 const code = ({ children, node }) => {
@@ -56,7 +54,7 @@ export default function Markdown({ children }) {
   return (
     <ReactMarkdown
       children={children}
-      components={{ h1, h2, h3, h4, h5, h6, p, hr, code, a, img }}
+      components={{ h1, h2, h3, h4, h5, h6, p: Paragraph, hr, code, a, img: Img }}
       rehypePlugins={[
         () => (tree) => {
           visit(tree, { tagName: 'code' }, (node, idx, parent) => {
