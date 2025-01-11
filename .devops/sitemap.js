@@ -15,7 +15,7 @@ export default {
         .map((name) => {
           const metaFile = `posts/${name}/meta.json`;
           const meta = JSON.parse(fs.readFileSync(metaFile).toString());
-          return { loc: `${host}/posts/name`, lastmod: meta.date };
+          return { loc: `${host}/posts/${name}`, lastmod: meta.date };
         }),
     ];
 
