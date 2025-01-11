@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { Route } from 'wouter';
 import usePosts from 'hooks/usePosts';
 import Masonry from 'components/ui/Masonry';
@@ -7,7 +7,7 @@ import Spinner from 'components/ui/Spinner';
 import Post from './Post';
 
 function List() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const currentTitle = document.title;
     document.title = `Posts - ${currentTitle}`;
     return () => { document.title = currentTitle; };
