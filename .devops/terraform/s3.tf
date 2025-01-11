@@ -30,6 +30,11 @@ resource "aws_s3_object" "www" {
 
   etag         = each.value.digests.md5
   content_type = each.value.content_type
+  cache_control = (
+    startswith(each.key, "assets/")
+    ? "max-age=31536000"
+    : null
+  )
 }
 
 resource "aws_s3_bucket_website_configuration" "www" {
