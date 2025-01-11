@@ -2,12 +2,15 @@ import { AppBar, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import AAvatar from './AAvatar';
 
+// eslint-disable-next-line import/no-unresolved
+import me from './me.png?format=avif&effort=max&w=300';
+
 // TODO: cleanup
 export default function BigHeader() {
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: 'center', flexDirection: 'column', pt: 3.5, paddingBottom: 2, gap: 1 }}>
-        <AAvatar size={150} bsize={16} />
+        <AAvatar size={150} bsize={16} src={me} />
 
         <Stack alignItems="center">
           <Typography variant="h6" fontWeight="bold">Aeden Murray</Typography>

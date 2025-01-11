@@ -1,7 +1,5 @@
 import { Link } from 'wouter';
 import { Avatar, Badge, styled } from '@mui/material';
-// eslint-disable-next-line import/no-unresolved
-import me from './me.png?format=avif&w=400';
 
 const StyledBadge = styled(Badge, {
   shouldForwardProp: (prop) => prop !== 'size',
@@ -37,7 +35,7 @@ const StyledBadge = styled(Badge, {
   },
 }));
 
-export default function AAvatar({ size = 40, bsize = 8 }) {
+export default function AAvatar({ size = 40, bsize = 8, src }) {
   return (
     <Link href="~/">
       <StyledBadge
@@ -49,7 +47,7 @@ export default function AAvatar({ size = 40, bsize = 8 }) {
         <Avatar
           sx={{ width: size, height: size }}
           alt="Aeden Murray"
-          src={me}
+          src={src}
         />
       </StyledBadge>
     </Link>
