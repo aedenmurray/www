@@ -35,7 +35,7 @@ serve:
 
 bust:
   aws cloudfront create-invalidation \
-    --distribution-id E2NWH87KQ3CPU8 \
+    --distribution-id E1ANJ1GCT0ZQ83 \
     --no-cli-pager \
     --paths '/*'
 

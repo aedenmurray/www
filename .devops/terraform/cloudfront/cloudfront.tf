@@ -1,39 +1,49 @@
+module "reroute" {
+  source = "./reroute"
+}
+
+data "aws_cloudfront_cache_policy" "www" {
+  name = "Managed-CachingOptimized"
+}
+
 resource "aws_cloudfront_origin_access_control" "www" {
-  name                              = local.domain
-  description                       = local.domain
+  name                              = var.domain
+  description                       = var.domain
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
-}
-
-data "aws_cloudfront_cache_policy" "main" {
-  name = "Managed-CachingOptimized"
 }
 
 resource "aws_cloudfront_distribution" "www" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
-  comment             = local.domain
+  comment             = var.domain
 
   aliases = [
-    local.domain,
-    "www.${local.domain}"
+    "www.${var.domain}",
+    var.domain,
   ]
 
   origin {
-    origin_id                = local.domain
-    domain_name              = aws_s3_bucket.www.bucket_regional_domain_name
+    origin_id                = var.domain
+    domain_name              = var.domain_s3
     origin_access_control_id = aws_cloudfront_origin_access_control.www.id
   }
 
   default_cache_behavior {
-    cache_policy_id        = data.aws_cloudfront_cache_policy.main.id
+    cache_policy_id        = data.aws_cloudfront_cache_policy.www.id
     allowed_methods        = ["HEAD", "GET", "OPTIONS"]
     cached_methods         = ["HEAD", "GET", "OPTIONS"]
     viewer_protocol_policy = "redirect-to-https"
-    target_origin_id       = local.domain
+    target_origin_id       = var.domain
     compress               = true
+
+    lambda_function_association {
+      event_type   = "viewer-request"
+      lambda_arn   = module.reroute.qualified_arn
+      include_body = false
+    }
   }
 
   custom_error_response {
@@ -50,7 +60,7 @@ resource "aws_cloudfront_distribution" "www" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate_validation.www.certificate_arn
+    acm_certificate_arn      = var.certificate_arn
     minimum_protocol_version = "TLSv1.2_2021"
     ssl_support_method       = "sni-only"
   }

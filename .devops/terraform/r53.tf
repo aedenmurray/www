@@ -8,8 +8,8 @@ resource "aws_route53_record" "root_ipv4" {
   type    = "A"
 
   alias {
-    name                   = aws_cloudfront_distribution.www.domain_name
-    zone_id                = aws_cloudfront_distribution.www.hosted_zone_id
+    name                   = module.cloudfront.domain
+    zone_id                = module.cloudfront.zone_id
     evaluate_target_health = false
   }
 }
@@ -32,8 +32,8 @@ resource "aws_route53_record" "root_ipv6" {
   type    = "AAAA"
 
   alias {
-    name                   = aws_cloudfront_distribution.www.domain_name
-    zone_id                = aws_cloudfront_distribution.www.hosted_zone_id
+    name                   = module.cloudfront.domain
+    zone_id                = module.cloudfront.zone_id
     evaluate_target_health = false
   }
 }

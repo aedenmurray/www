@@ -28,8 +28,8 @@ resource "aws_s3_object" "www" {
   source  = each.value.source_path
   content = each.value.content
 
-  etag          = each.value.digests.md5
-  content_type  = each.value.content_type
+  etag         = each.value.digests.md5
+  content_type = each.value.content_type
 }
 
 resource "aws_s3_bucket_website_configuration" "www" {
@@ -62,7 +62,7 @@ data "aws_iam_policy_document" "cloudfront_access" {
     condition {
       test     = "StringEquals"
       variable = "AWS:SourceArn"
-      values   = [aws_cloudfront_distribution.www.arn]
+      values   = [module.cloudfront.arn]
     }
   }
 }
