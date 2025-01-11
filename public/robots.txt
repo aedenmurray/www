@@ -1,2 +1,4 @@
+Sitemap: http://aedenmurray.dev/sitemap.xml
+
 User-agent: *
 Allow: /
