@@ -3,9 +3,8 @@ import { GitHub, LinkedIn } from '@mui/icons-material';
 import AAvatar from './AAvatar';
 
 // eslint-disable-next-line import/no-unresolved
-import me from './me.png?format=avif&effort=max&w=300';
+import me from './me.png?format=avif&w=300';
 
-// TODO: cleanup
 export default function BigHeader() {
   return (
     <AppBar position="static">
