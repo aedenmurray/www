@@ -1,4 +1,4 @@
-import { Route } from 'wouter';
+import { Redirect, Route } from 'wouter';
 import { SWRConfig } from 'swr';
 import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -41,8 +41,23 @@ root.render(
             <Header />
             <Container sx={{ py: 2, position: 'relative', flexGrow: 1 }}>
               <Suspense>
-                <Route path="/posts" nest><Posts /></Route>
-                <Route path="/"><Home /></Route>
+                <Route
+                  path="/posts"
+                  nest
+                >
+                  <Posts />
+                </Route>
+
+                <Route path="/">
+                  <Home />
+                </Route>
+
+                <Route>
+                  <Redirect
+                    replace
+                    to="/"
+                  />
+                </Route>
               </Suspense>
             </Container>
           </Stack>
