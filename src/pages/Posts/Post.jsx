@@ -1,5 +1,5 @@
 import { Typography, Stack, Box, Fade } from '@mui/material';
-import { useParams } from 'wouter';
+import { Redirect, useParams } from 'wouter';
 import Markdown from 'components/ui/Markdown';
 import Tags from 'components/ui/Tags';
 import usePost from 'hooks/usePost';
@@ -29,9 +29,9 @@ function DateTime({ date }) {
 export default function Post() {
   const { slug } = useParams();
   const { post, loading, error } = usePost(slug);
-  if (error) return null; // TODO: error state
 
   useEffect(() => {
+    if (!post) return () => {};
     const currentTitle = document.title;
     if (!post?.meta?.title) return () => {};
     document.title = `${post.meta.title} - ${currentTitle}`;
@@ -40,6 +40,15 @@ export default function Post() {
 
   if (loading) {
     return <Spinner />;
+  }
+
+  if (error) {
+    return (
+      <Redirect
+        to="/"
+        replace
+      />
+    );
   }
 
   return (
