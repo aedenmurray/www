@@ -45,7 +45,7 @@ export default function Post() {
   if (error) {
     return (
       <Redirect
-        to="/"
+        to="~/posts"
         replace
       />
     );
