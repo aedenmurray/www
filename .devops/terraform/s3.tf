@@ -30,11 +30,8 @@ resource "aws_s3_object" "www" {
 
   etag         = each.value.digests.md5
   content_type = each.value.content_type
-  cache_control = (
-    startswith(each.key, "assets/")
-    ? "max-age=31536000"
-    : null
-  )
+  # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html#ExpirationDownloadDist
+  cache_control = "max-age=0,s-maxage=31536000"
 }
 
 resource "aws_s3_bucket_website_configuration" "www" {
