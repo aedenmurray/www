@@ -14,6 +14,7 @@ const build = {
   emptyOutDir: true,
   outDir: '/tmp/www',
   assetsInlineLimit: 0,
+  publicDir: '.devops/public',
 };
 
 export default defineConfig({
