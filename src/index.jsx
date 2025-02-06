@@ -4,7 +4,6 @@ import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider, CssBaseline, Container, Stack } from '@mui/material';
 import Header from 'components/Header';
-import FontFade from 'components/ui/FontFade';
 import theme from 'theme';
 
 import '@fontsource/roboto/300.css';
@@ -33,38 +32,36 @@ const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
-  <FontFade>
-    <SWRConfig value={{ fetcher }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline>
-          <Stack sx={{ height: '100%' }}>
-            <Header />
-            <Container sx={{ py: 2, position: 'relative', flexGrow: 1 }}>
-              <Suspense>
-                <Switch>
-                  <Route
-                    path="/posts"
-                    nest
-                  >
-                    <Posts />
-                  </Route>
+  <SWRConfig value={{ fetcher }}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
+        <Stack sx={{ height: '100%' }}>
+          <Header />
+          <Container sx={{ py: 2, position: 'relative', flexGrow: 1 }}>
+            <Suspense>
+              <Switch>
+                <Route
+                  path="/posts"
+                  nest
+                >
+                  <Posts />
+                </Route>
 
-                  <Route path="/">
-                    <Home />
-                  </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
 
-                  <Route>
-                    <Redirect
-                      replace
-                      to="/"
-                    />
-                  </Route>
-                </Switch>
-              </Suspense>
-            </Container>
-          </Stack>
-        </CssBaseline>
-      </ThemeProvider>
-    </SWRConfig>
-  </FontFade>,
+                <Route>
+                  <Redirect
+                    replace
+                    to="/"
+                  />
+                </Route>
+              </Switch>
+            </Suspense>
+          </Container>
+        </Stack>
+      </CssBaseline>
+    </ThemeProvider>
+  </SWRConfig>,
 );
