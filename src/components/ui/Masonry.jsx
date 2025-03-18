@@ -15,9 +15,7 @@ export default function Masonry({ children }) {
             [breakpoints.values.lg]: 4,
           }}
         >
-          <RMasonry
-            gutter={spacing(1)}
-          >
+          <RMasonry gap={spacing(1)}>
             {children}
           </RMasonry>
         </ResponsiveColumns>
