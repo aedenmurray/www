@@ -12,8 +12,8 @@ export default function BigHeader() {
         <AAvatar size={150} bsize={16} src={me} />
 
         <Stack alignItems="center">
-          <Typography variant="h6" fontWeight="bold">Aeden Murray</Typography>
-          <Typography variant="subtitle2">aeden@aedenmurray.dev</Typography>
+          <Typography variant="h6" fontWeight="bold" component="h1">Aeden Murray</Typography>
+          <Typography variant="subtitle2" component="h2">aeden@aedenmurray.dev</Typography>
 
           <Stack direction="row">
             <IconButton
