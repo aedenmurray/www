@@ -2,10 +2,16 @@ import { AppBar, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import AAvatar from './AAvatar';
 
-// eslint-disable-next-line import/no-unresolved
-import me from './me.png?format=avif&w=300';
+/* eslint-disable import/no-unresolved */
+import meNonRetina from './me.png?format=avif&w=150';
+import meRetina from './me.png?format=avif&w=300';
+/* eslint-enable import/no-unresolved */
 
 export default function BigHeader() {
+  const me = window.devicePixelRatio === 1
+    ? meNonRetina
+    : meRetina;
+
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: 'center', flexDirection: 'column', pt: 3.5, paddingBottom: 2, gap: 1 }}>

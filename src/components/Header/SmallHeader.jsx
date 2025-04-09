@@ -1,10 +1,16 @@
 import { AppBar, Stack, Typography, Container } from '@mui/material';
 import AAvatar from './AAvatar';
 
-// eslint-disable-next-line import/no-unresolved
-import me from './me.png?format=avif&w=80';
+/* eslint-disable import/no-unresolved */
+import meNonRetina from './me.png?format=avif&w=40';
+import meRetina from './me.png?format=avif&w=80';
+/* eslint-enable import/no-unresolved */
 
 export default function SmallHeader() {
+  const me = window.devicePixelRatio === 1
+    ? meNonRetina
+    : meRetina;
+
   return (
     <AppBar position="static">
       <Container>
