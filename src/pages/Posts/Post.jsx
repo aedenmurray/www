@@ -10,6 +10,7 @@ function Title({ title }) {
   return (
     <Typography
       variant="h3"
+      component="h1"
       fontWeight="bold"
       sx={{ mb: 1 }}
     >
