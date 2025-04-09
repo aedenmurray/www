@@ -55,7 +55,7 @@ export default function Post() {
   return (
     <Fade in>
       <Stack>
-        <Box mb={3}>
+        <Box mb={2}>
           <DateTime date={post.meta.date} />
           <Title title={post.meta.title} />
           <Tags tags={post.meta.tags} />
