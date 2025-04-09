@@ -8,7 +8,7 @@ function buildRedirectToWWW({ uri }) {
 exports.handler = async (evt) => {
   const { request } = evt.Records[0].cf;
   if (!path.extname(request.uri)) request.uri = '/index.html';
-  return request.headers.host[0].value !== 'www.aedenmurray.dev'
+  return !request.headers.host[0].value.startsWith('www')
     ? buildRedirectToWWW(request)
     : request;
 };
