@@ -12,8 +12,8 @@ export default function SmallHeader() {
           <AAvatar size={40} bsize={8} src={me} />
 
           <Stack spacing={0}>
-            <Typography variant="h6" lineHeight="normal" fontWeight="bold" component="h1">Aeden Murray</Typography>
-            <Typography variant="caption" lineHeight="normal" component="h2">aeden@aedenmurray.dev</Typography>
+            <Typography variant="h6" lineHeight="normal" fontWeight="bold">Aeden Murray</Typography>
+            <Typography variant="caption" lineHeight="normal">aeden@aedenmurray.dev</Typography>
           </Stack>
         </Stack>
       </Container>
