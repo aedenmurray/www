@@ -14,3 +14,8 @@ resource "aws_lambda_function" "main" {
   handler          = "reroute.handler"
   runtime          = "nodejs22.x"
 }
+
+resource "aws_cloudwatch_log_group" "main" {
+  name              = "/aws/lambda/us-east-1.${aws_lambda_function.main.function_name}"
+  retention_in_days = 1
+}
