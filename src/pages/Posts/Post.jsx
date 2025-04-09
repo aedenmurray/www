@@ -12,7 +12,7 @@ function Title({ title }) {
       variant="h3"
       component="h1"
       fontWeight="bold"
-      sx={{ mb: 1 }}
+      sx={{ mb: 2 }}
     >
       {title}
     </Typography>
