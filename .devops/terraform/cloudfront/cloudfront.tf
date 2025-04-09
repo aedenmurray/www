@@ -6,6 +6,10 @@ data "aws_cloudfront_cache_policy" "www" {
   name = "Managed-CachingOptimized"
 }
 
+data "aws_cloudfront_response_headers_policy" "www" {
+  name = "Managed-SecurityHeadersPolicy"
+}
+
 resource "aws_cloudfront_origin_access_control" "www" {
   name                              = var.domain
   description                       = var.domain
@@ -32,12 +36,13 @@ resource "aws_cloudfront_distribution" "www" {
   }
 
   default_cache_behavior {
-    cache_policy_id        = data.aws_cloudfront_cache_policy.www.id
-    allowed_methods        = ["HEAD", "GET", "OPTIONS"]
-    cached_methods         = ["HEAD", "GET", "OPTIONS"]
-    viewer_protocol_policy = "redirect-to-https"
-    target_origin_id       = var.domain
-    compress               = true
+    cache_policy_id            = data.aws_cloudfront_cache_policy.www.id
+    response_headers_policy_id = data.aws_cloudfront_response_headers_policy.www.id
+    allowed_methods            = ["HEAD", "GET", "OPTIONS"]
+    cached_methods             = ["HEAD", "GET", "OPTIONS"]
+    viewer_protocol_policy     = "redirect-to-https"
+    target_origin_id           = var.domain
+    compress                   = true
 
     lambda_function_association {
       event_type   = "viewer-request"
