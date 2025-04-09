@@ -1,7 +1,7 @@
 const path = require('path');
 
-function buildRedirectToWWW({ uri }) {
-  const location = [{ key: 'Location', value: `https://www.aedenmurray.dev${uri}` }];
+function buildRedirectToWWW({ uri, headers }) {
+  const location = [{ key: 'Location', value: `https://www.${headers.host[0].value}${uri}` }];
   return { status: '301', headers: { location } };
 }
 
