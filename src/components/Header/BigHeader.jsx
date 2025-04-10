@@ -3,9 +3,9 @@ import { GitHub, LinkedIn } from '@mui/icons-material';
 import AAvatar from './AAvatar';
 
 /* eslint-disable import/no-unresolved */
+import meSmall from './me.png?format=avif&w=5&inline';
 import meNonRetina from './me.png?format=avif&w=150';
 import meRetina from './me.png?format=avif&w=300';
-import meSmall from './me.png?format=avif&w=20';
 /* eslint-enable import/no-unresolved */
 
 export default function BigHeader() {

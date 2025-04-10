@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 
 const imagesSmall = import.meta.glob('/posts/**/*.png', {
-  query: '?url&format=avif&as=meta:src&w=20',
+  query: '?url&format=avif&as=meta:src&w=5&inline',
   import: 'default',
   eager: true,
 });
