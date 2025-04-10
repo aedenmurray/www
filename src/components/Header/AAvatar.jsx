@@ -1,6 +1,6 @@
 import { Link } from 'wouter';
 import { Avatar, Badge, styled } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const StyledBadge = styled(Badge, {
   shouldForwardProp: (prop) => prop !== 'size',
@@ -38,14 +38,14 @@ const StyledBadge = styled(Badge, {
 
 export default function AAvatar({ size = 40, bsize = 8, src, small }) {
   const [loaded, setLoaded] = useState(false);
-  const img = useRef(new Image());
 
   useEffect(() => {
-    img.current.fetchPriority = 'high';
-    img.current.decoding = 'sync';
-    img.current.src = src;
+    const img = new Image();
+    img.fetchPriority = 'high';
+    img.decoding = 'sync';
+    img.src = src;
 
-    img.current.onload = () =>
+    img.onload = () =>
       setLoaded(true);
   }, [src]);
 
