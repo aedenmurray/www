@@ -4,6 +4,7 @@ import AAvatar from './AAvatar';
 /* eslint-disable import/no-unresolved */
 import meNonRetina from './me.png?format=avif&w=40';
 import meRetina from './me.png?format=avif&w=80';
+import meSmall from './me.png?format=avif&w=20';
 /* eslint-enable import/no-unresolved */
 
 export default function SmallHeader() {
@@ -15,7 +16,7 @@ export default function SmallHeader() {
     <AppBar position="static">
       <Container>
         <Stack spacing={1.5} direction="row" sx={{ py: 1.5 }} alignItems="center">
-          <AAvatar size={40} bsize={8} src={me} />
+          <AAvatar size={40} bsize={8} src={me} small={meSmall} />
 
           <Stack spacing={0}>
             <Typography variant="h6" lineHeight="normal" fontWeight="bold">Aeden Murray</Typography>

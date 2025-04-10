@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 import { Avatar, Badge, styled } from '@mui/material';
+import { useEffect, useRef, useState } from 'react';
 
 const StyledBadge = styled(Badge, {
   shouldForwardProp: (prop) => prop !== 'size',
@@ -35,19 +36,43 @@ const StyledBadge = styled(Badge, {
   },
 }));
 
-export default function AAvatar({ size = 40, bsize = 8, src }) {
+export default function AAvatar({ size = 40, bsize = 8, src, small }) {
+  const [loaded, setLoaded] = useState(false);
+  const img = useRef(new Image());
+
+  useEffect(() => {
+    img.current.fetchPriority = 'high';
+    img.current.decoding = 'sync';
+    img.current.src = src;
+
+    img.current.onload = () =>
+      setLoaded(true);
+  }, [src]);
+
   return (
     <Link href="~/">
       <StyledBadge
         size={bsize}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        overlap="circular"
         variant="dot"
+        overlap="circular"
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
       >
         <Avatar
-          sx={{ width: size, height: size }}
+          sx={{
+            width: size,
+            height: size,
+            '& img': {
+              transition: 'filter 0.5s ease',
+              filter: !loaded
+                ? 'blur(0.5rem)'
+                : 'blur(0)',
+            },
+          }}
+          src={!loaded ? small : src}
           alt="Aeden Murray"
-          src={src}
         />
       </StyledBadge>
     </Link>
