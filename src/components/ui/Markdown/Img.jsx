@@ -23,21 +23,13 @@ export default function Img({ alt, src }) {
     };
   }, [imgMeta]);
 
-  if (!loaded) {
-    return (
-      <Box sx={{ width: '100%', marginTop: '16px', marginBottom: '16px' }}>
-        <Box sx={{ width: '100%', aspectRatio: `${imgMeta.width} / ${imgMeta.height}` }}>
-          <Skeleton variant="rectangular" width="100%" height="100%" />
-        </Box>
-      </Box>
-    );
-  }
-
   return (
-    <img
-      alt={alt}
-      src={imgMeta.src}
-      style={{ width: '100%', marginTop: 16, marginBottom: 16 }}
-    />
+    <Box sx={{ width: '100%', marginTop: '16px', marginBottom: '16px' }}>
+      <Box sx={{ width: '100%', aspectRatio: `${imgMeta.width} / ${imgMeta.height}` }}>
+        {loaded
+          ? <img alt={alt} src={imgMeta.src} style={{ width: '100%', display: 'block' }} />
+          : <Skeleton variant="rectangular" width="100%" height="100%" />}
+      </Box>
+    </Box>
   );
 }
