@@ -40,23 +40,9 @@ root.render(
           <Container sx={{ py: 2, position: 'relative', flexGrow: 1 }}>
             <Suspense>
               <Switch>
-                <Route
-                  path="/posts"
-                  nest
-                >
-                  <Posts />
-                </Route>
-
-                <Route path="/">
-                  <Home />
-                </Route>
-
-                <Route>
-                  <Redirect
-                    replace
-                    to="/"
-                  />
-                </Route>
+                <Route path="/posts" nest><Posts /></Route>
+                <Route path="/"><Home /></Route>
+                <Route><Redirect replace to="/" /></Route>
               </Switch>
             </Suspense>
           </Container>
