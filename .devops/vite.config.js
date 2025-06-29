@@ -2,11 +2,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import jsconfigPaths from 'vite-jsconfig-paths';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { imagetools } from 'vite-imagetools';
 import sitemap from './sitemap';
 
-const plugins = [react(), jsconfigPaths(), imagetools(), sitemap];
+const plugins = [react(), tsconfigPaths(), imagetools(), sitemap];
 const server = { open: false, port: 8000, hmr: false };
 const esbuild = { legalComments: 'none' };
 
