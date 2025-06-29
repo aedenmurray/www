@@ -1,6 +1,6 @@
 import { Bookmark } from '@mui/icons-material';
-import Tags from 'components/ui/Tags';
-import Card from 'components/ui/Card';
+import Tags from '~/components/ui/Tags';
+import Card from '~/components/ui/Card';
 
 export default function PostCard({ title, slug, tags, date }) {
   return (

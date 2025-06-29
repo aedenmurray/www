@@ -1,5 +1,5 @@
 import { Code } from '@mui/icons-material';
-import Card from 'components/ui/Card';
+import Card from '~/components/ui/Card';
 
 export default function RepoCard({ name, description }) {
   return (

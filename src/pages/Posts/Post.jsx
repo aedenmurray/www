@@ -1,9 +1,9 @@
 import { Typography, Stack, Box, Fade } from '@mui/material';
 import { Redirect, useParams } from 'wouter';
-import Markdown from 'components/ui/Markdown';
-import Tags from 'components/ui/Tags';
-import usePost from 'hooks/usePost';
-import Spinner from 'components/ui/Spinner';
+import Markdown from '~/components/ui/Markdown';
+import Tags from '~/components/ui/Tags';
+import usePost from '~/hooks/usePost';
+import Spinner from '~/components/ui/Spinner';
 import { useEffect } from 'react';
 
 function Title({ title }) {

@@ -3,16 +3,16 @@ import { SWRConfig } from 'swr';
 import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider, CssBaseline, Container, Stack } from '@mui/material';
-import Header from 'components/Header';
-import theme from 'theme';
+import Header from '~/components/Header';
+import theme from '~/theme';
 
 import '@fontsource/roboto/latin-300.css';
 import '@fontsource/roboto/latin-400.css';
 import '@fontsource/roboto/latin-500.css';
 import '@fontsource/roboto/latin-700.css';
 
-const Posts = lazy(() => import('pages/Posts'));
-const Home = lazy(() => import('pages/Home'));
+const Posts = lazy(() => import('~/pages/Posts'));
+const Home = lazy(() => import('~/pages/Home'));
 
 const fetcher = (...args) => (
   fetch(...args)

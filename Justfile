@@ -22,11 +22,13 @@ console:
   {{terraform}} console
 
 lint:
-  {{eslint}} .
+  {{eslint}} . -- \
+    --ext .js,.jsx
 
 fix:
   {{eslint}} . -- \
-  --fix
+    --ext .js,.jsx \
+    --fix
 
 build:
   {{vite}} build

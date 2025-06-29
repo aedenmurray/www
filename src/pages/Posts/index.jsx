@@ -1,9 +1,9 @@
 import { useLayoutEffect } from 'react';
 import { Route } from 'wouter';
-import usePosts from 'hooks/usePosts';
-import Masonry from 'components/ui/Masonry';
-import PostCard from 'components/Cards/PostCard';
-import Spinner from 'components/ui/Spinner';
+import usePosts from '~/hooks/usePosts';
+import Masonry from '~/components/ui/Masonry';
+import PostCard from '~/components/Cards/PostCard';
+import Spinner from '~/components/ui/Spinner';
 import Post from './Post';
 
 function List() {

@@ -13,10 +13,8 @@ parserOptions:
 
 settings:
   "import/resolver":
-    node:
-      "moduleDirectory":
-        - "node_modules"
-        - "src"
+    typescript:
+      project: ./jsconfig.json
 
 rules:
   "object-curly-newline": 

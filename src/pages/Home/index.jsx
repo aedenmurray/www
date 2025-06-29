@@ -1,10 +1,10 @@
-import ErrorCard from 'components/Cards/ErrorCard';
-import PostCard from 'components/Cards/PostCard';
-import RepoCard from 'components/Cards/RepoCard';
-import Masonry from 'components/ui/Masonry';
-import Spinner from 'components/ui/Spinner';
-import usePosts from 'hooks/usePosts';
-import useRepos from 'hooks/useRepos';
+import ErrorCard from '~/components/Cards/ErrorCard';
+import PostCard from '~/components/Cards/PostCard';
+import RepoCard from '~/components/Cards/RepoCard';
+import Masonry from '~/components/ui/Masonry';
+import Spinner from '~/components/ui/Spinner';
+import usePosts from '~/hooks/usePosts';
+import useRepos from '~/hooks/useRepos';
 
 export default function Home() {
   const postsHook = usePosts();

@@ -1,5 +1,5 @@
 import { Error } from '@mui/icons-material';
-import Card from 'components/ui/Card';
+import Card from '~/components/ui/Card';
 
 export default function ErrorCard({
   title = 'Error',
